@@ -1,8 +1,8 @@
 package com.stmarygate.cassandra.handlers;
 
-import com.stmarygate.common.network.BaseChannel;
-import com.stmarygate.common.network.PacketHandler;
-import com.stmarygate.common.network.packets.server.PacketVersionResult;
+import com.stmarygate.coral.network.BaseChannel;
+import com.stmarygate.coral.network.PacketHandler;
+import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

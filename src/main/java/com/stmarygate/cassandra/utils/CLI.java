@@ -1,7 +1,7 @@
 package com.stmarygate.cassandra.utils;
 
 import com.stmarygate.cassandra.Cassandra;
-import com.stmarygate.common.network.packets.Packet;
+import com.stmarygate.coral.network.packets.Packet;
 import java.lang.reflect.Constructor;
 
 public class CLI {

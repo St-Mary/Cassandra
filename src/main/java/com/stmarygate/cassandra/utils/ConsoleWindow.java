@@ -1,5 +1,6 @@
 package com.stmarygate.cassandra.utils;
 
+import com.stmarygate.cassandra.Constants;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
@@ -17,6 +18,13 @@ public class ConsoleWindow {
                     $$ |  $$\\ $$ |  $$ |$$\\   $$ |$$\\   $$ |$$ |  $$ |$$ |\\$$$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |
                     \\$$$$$$  |$$ |  $$ |\\$$$$$$  |\\$$$$$$  |$$ |  $$ |$$ | \\$$ |$$$$$$$  |$$ |  $$ |$$ |  $$ |
                      \\______/ \\__|  \\__| \\______/  \\______/ \\__|  \\__|\\__|  \\__|\\_______/ \\__|  \\__|\\__|  \\__|""");
+    System.out.println(
+        "------------------------------------------------------------------------------------------");
+    System.out.println("GitHub: https://github.com/St-Mary/Cassandra");
+    System.out.println("Version: " + Constants.getVersion());
+    System.out.println("Licence: GNU General Public License v3.0");
+    System.out.println(
+        "------------------------------------------------------------------------------------------");
   }
 
   public static SocketAddress getAddress() {
@@ -38,7 +46,11 @@ public class ConsoleWindow {
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     try {
       System.out.print("> ");
-      return reader.readLine();
+      String line = reader.readLine();
+      if (line.equals("exit")) {
+        System.exit(0);
+      }
+      return line;
     } catch (Exception e) {
       throw new RuntimeException(e);
     }

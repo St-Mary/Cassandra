@@ -3,8 +3,8 @@ package com.stmarygate.cassandra;
 import com.stmarygate.cassandra.handlers.LoginPacketHandler;
 import com.stmarygate.cassandra.utils.CLI;
 import com.stmarygate.cassandra.utils.ConsoleWindow;
-import com.stmarygate.common.network.BaseChannel;
-import com.stmarygate.common.network.BaseInitializer;
+import com.stmarygate.coral.network.BaseChannel;
+import com.stmarygate.coral.network.BaseInitializer;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
@@ -41,12 +41,19 @@ public class Cassandra {
       ChannelFuture f = b.connect(address).sync();
       LOGGER.info("Time start: " + (System.currentTimeMillis() - time) + "ms");
       CLI.start();
+      f.addListener(future -> close());
       f.channel().closeFuture().sync();
     } catch (InterruptedException e) {
       throw new RuntimeException(e);
     } finally {
-      workerGroup.shutdownGracefully();
+      close();
     }
+  }
+
+  /** Close the connection to the Luna server. */
+  public static void close() {
+    LOGGER.info("Closing connection to Luna server...");
+    workerGroup.shutdownGracefully();
   }
 
   /**
