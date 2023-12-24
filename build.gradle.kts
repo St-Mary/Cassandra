@@ -49,6 +49,9 @@ dependencies {
     implementation("io.github.cdimascio", "java-dotenv", "5.1.1")
     implementation("ch.qos.logback", "logback-classic", "1.2.9")
     implementation("io.netty:netty-all:4.1.101.Final")
+    implementation("org.springframework.security:spring-security-core:6.2.1")
+    implementation("org.springframework.security:spring-security-crypto:6.2.1")
+    implementation("org.bouncycastle:bcprov-jdk18on:1.77")
 
     // Database
     implementation("org.postgresql:postgresql:42.7.0")
@@ -57,8 +60,8 @@ dependencies {
     implementation("org.hibernate.orm:hibernate-hikaricp:6.3.0.CR1")
     implementation("com.vladmihalcea:hibernate-types-60:2.21.1")
 
-    implementation("com.stmarygate:coral:1.0.10")
-    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.8.jar"))
+    implementation("com.stmarygate:coral:1.0.11")
+    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.11.jar"))
 }
 
 tasks {
@@ -81,7 +84,7 @@ tasks.jar {
 
 tasks.shadowJar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    archiveBaseName.set("stmary-gameserver")
+    archiveBaseName.set("cassandra")
     archiveClassifier.set("")
     archiveVersion.set("")
 }

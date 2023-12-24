@@ -53,7 +53,7 @@ public class CLI {
       Packet p = constructor.newInstance(parameters);
       Cassandra.getBaseChannel().getSession().write(p);
     } catch (Exception e) {
-      throw new RuntimeException(e);
+      e.printStackTrace();
     }
   }
 
@@ -67,7 +67,7 @@ public class CLI {
     packetName = packetName.substring(0, 1).toUpperCase() + packetName.substring(1);
     try {
       return (Class<? extends Packet>)
-          Class.forName("com.stmarygate.common.network.packets.client.Packet" + packetName);
+          Class.forName("com.stmarygate.coral.network.packets.client.Packet" + packetName);
     } catch (ClassNotFoundException e) {
       System.out.println("Invalid packet name.");
     }

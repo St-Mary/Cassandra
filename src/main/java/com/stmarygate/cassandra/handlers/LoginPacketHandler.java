@@ -26,7 +26,7 @@ public class LoginPacketHandler extends PacketHandler {
    */
   public void handlePacketVersionResult(PacketVersionResult packet) {
     LOGGER.info(
-        "CLIENT - VersionResultPacket received from server. Version result: {}",
+        "VersionResultPacket received. Version result: {}",
         packet.isAccepted() ? "accepted" : "rejected");
   }
 }
