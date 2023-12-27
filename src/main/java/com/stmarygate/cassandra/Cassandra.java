@@ -3,7 +3,6 @@ package com.stmarygate.cassandra;
 import com.stmarygate.cassandra.handlers.CassandraLoginPacketHandler;
 import com.stmarygate.cassandra.utils.CLI;
 import com.stmarygate.cassandra.utils.ConsoleWindow;
-import com.stmarygate.coral.network.BaseInitializer;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
@@ -23,7 +22,7 @@ public class Cassandra {
   private static CassandraChannel baseChannel =
       new CassandraChannel(CassandraLoginPacketHandler.class);
 
-  private static BaseInitializer baseInitializer = new BaseInitializer(baseChannel);
+  private static CassandraInitializer baseInitializer = new CassandraInitializer(baseChannel);
   private static ChannelFuture future;
 
   public static void main(String[] args) {
@@ -37,7 +36,7 @@ public class Cassandra {
     close();
     workerGroup = new NioEventLoopGroup();
     baseChannel = new CassandraChannel(CassandraLoginPacketHandler.class);
-    baseInitializer = new BaseInitializer(baseChannel);
+    baseInitializer = new CassandraInitializer(baseChannel);
     start(ConsoleWindow.getAddress());
   }
 
