@@ -2,10 +2,26 @@ package com.stmarygate.cassandra.utils;
 
 import com.stmarygate.cassandra.Cassandra;
 import com.stmarygate.coral.network.packets.Packet;
+import com.stmarygate.coral.utils.Utils;
 import java.lang.reflect.Constructor;
+import java.util.Arrays;
+import lombok.Getter;
+import lombok.Setter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CLI {
+  private static final Logger LOGGER = LoggerFactory.getLogger(CLI.class);
+  @Getter @Setter private static Thread thread;
+
   public static void start() {
+    thread = new Thread(CLI::run);
+    thread.setName("CLI");
+    thread.start();
+  }
+
+  /** Run the CLI */
+  private static void run() {
     while (true) {
       Utils.wait(200);
       String line = ConsoleWindow.readLine();
@@ -15,18 +31,24 @@ public class CLI {
 
       switch (line.split(" ")[0]) {
         case "help":
-          System.out.println("Commands:");
-          System.out.println("  help - Show this help message.");
-          System.out.println("  exit - Exit the Cassandra CLI.");
-          System.out.println("  sendpacket <packet> <data> - Send a packet to the server.");
-          break;
+          {
+            System.out.println("Commands:");
+            System.out.println("  help - Show this help message.");
+            System.out.println("  exit - Exit the Cassandra CLI.");
+            System.out.println("  sendpacket <packet> <data> - Send a packet to the server.");
+            break;
+          }
         case "sendpacket":
-          if (!checkLine(line, "^sendpacket ([a-zA-Z]+) (.*)$")) return;
-          sendPacket(line);
-          break;
+          {
+            if (!checkLine(line, "^sendpacket ([a-zA-Z]+) (.*)$")) break;
+            sendPacket(line);
+            break;
+          }
         default:
-          System.out.println("Unknown command. Type 'help' for a list of commands.");
-          break;
+          {
+            System.out.println("Unknown command. Type 'help' for a list of commands.");
+            break;
+          }
       }
     }
   }
@@ -51,9 +73,14 @@ public class CLI {
       Constructor<? extends Packet> constructor = getConstructor(clazz, data.length);
       Object[] parameters = getParameters(constructor, data);
       Packet p = constructor.newInstance(parameters);
+      LOGGER.info("Sending packet {}", p);
       Cassandra.getBaseChannel().getSession().write(p);
+      LOGGER.info("Packet sent");
     } catch (Exception e) {
-      e.printStackTrace();
+      LOGGER.error(
+          "Failed to send packet {}\n{}",
+          packet,
+          e.getMessage() + "\n" + Arrays.toString(e.getStackTrace()));
     }
   }
 
@@ -142,5 +169,12 @@ public class CLI {
       return false;
     }
     return true;
+  }
+
+  public static void kill() {
+    if (thread != null) {
+      thread.interrupt();
+      thread = null;
+    }
   }
 }

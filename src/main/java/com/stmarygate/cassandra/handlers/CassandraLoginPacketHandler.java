@@ -6,16 +6,16 @@ import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class LoginPacketHandler extends PacketHandler {
+public class CassandraLoginPacketHandler extends PacketHandler {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(LoginPacketHandler.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(CassandraLoginPacketHandler.class);
 
   /**
    * Create a new packet handler.
    *
    * @param channel The channel from which the packet handler was created.
    */
-  public LoginPacketHandler(BaseChannel channel) {
+  public CassandraLoginPacketHandler(BaseChannel channel) {
     super(channel);
   }
 
