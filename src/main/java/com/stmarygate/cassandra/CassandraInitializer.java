@@ -8,8 +8,8 @@ import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.handler.ssl.SslContext;
 import io.netty.handler.ssl.SslContextBuilder;
-import java.io.File;
-import java.io.IOException;
+import io.netty.handler.ssl.SslHandler;
+import javax.net.ssl.SSLEngine;
 
 public class CassandraInitializer extends BaseInitializer {
 
@@ -37,21 +37,20 @@ public class CassandraInitializer extends BaseInitializer {
 
     // SSL
     try {
-      pipeline.addLast("ssl", getSslContext().newHandler(ch.alloc()));
+      SslContext sslContext =
+          SslContextBuilder.forClient()
+              .trustManager(getClass().getResourceAsStream("./ssl/csr.pem"))
+              .build();
+      SSLEngine engine = sslContext.newEngine(ch.alloc());
+      engine.setUseClientMode(true);
+      engine.setNeedClientAuth(false);
+      // Add engine to pipeline
+      pipeline.addFirst("ssl", new SslHandler(engine));
     } catch (Exception e) {
-        e.printStackTrace();
+      e.printStackTrace();
     }
 
     // Add the business logic handler
     pipeline.addLast("handler", this.channel);
   }
-
-  /**
-   * Get the SSL certificate.
-   */
-    private SslContext getSslContext() throws IOException {
-      return SslContextBuilder.forClient()
-              .trustManager(new File("./ssl/certificate.pem"))
-              .build();
-    }
 }

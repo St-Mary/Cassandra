@@ -50,7 +50,7 @@ public class CassandraChannel extends BaseChannel {
 
   @Override
   public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-    LOGGER.info("Channel read");
+    LOGGER.info("Channel read: ");
     super.channelRead(ctx, msg);
   }
 
@@ -62,7 +62,7 @@ public class CassandraChannel extends BaseChannel {
 
   @Override
   public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-    LOGGER.info("User event triggered");
+    LOGGER.info("User event triggered " + evt.toString());
     super.userEventTriggered(ctx, evt);
   }
 
