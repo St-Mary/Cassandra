@@ -60,8 +60,8 @@ dependencies {
     implementation("org.hibernate.orm:hibernate-hikaricp:6.3.0.CR1")
     implementation("com.vladmihalcea:hibernate-types-60:2.21.1")
 
-    // implementation("com.stmarygate:coral:1.0.12")
-    implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.12.jar"))
+    implementation("com.stmarygate:coral:1.0.13")
+    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.12.jar"))
 }
 
 tasks {
