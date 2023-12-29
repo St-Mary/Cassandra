@@ -1,12 +1,14 @@
 package com.stmarygate.cassandra.utils;
 
 import com.stmarygate.cassandra.Constants;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.util.Scanner;
 
+/** This class contains all the methods for the console window. */
 public class ConsoleWindow {
+
+  /** Print the header. */
   public static void printHeader() {
     System.out.println(
         """
@@ -27,9 +29,16 @@ public class ConsoleWindow {
         "------------------------------------------------------------------------------------------");
   }
 
+  /**
+   * Get the address to connect to.
+   *
+   * @return The address to connect to.
+   */
   public static SocketAddress getAddress() {
     System.out.println("Enter the host and port to connect to (host:port): ");
-    String hostAndPort = readLine();
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("> ");
+    String hostAndPort = scanner.nextLine().trim();
     String regex = "^(.*):(\\d+)$";
     if (hostAndPort.matches(regex)) {
       String[] hostAndPortArray = hostAndPort.split(":");
@@ -39,20 +48,6 @@ public class ConsoleWindow {
     } else {
       System.out.println("Invalid host and port.");
       return getAddress();
-    }
-  }
-
-  public static String readLine() {
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    try {
-      System.out.print("> ");
-      String line = reader.readLine();
-      if (line.equals("exit")) {
-        System.exit(0);
-      }
-      return line;
-    } catch (Exception e) {
-      throw new RuntimeException(e);
     }
   }
 }

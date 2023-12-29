@@ -2,14 +2,15 @@ package com.stmarygate.cassandra.utils;
 
 import com.stmarygate.cassandra.Cassandra;
 import com.stmarygate.coral.network.packets.Packet;
-import com.stmarygate.coral.utils.Utils;
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
+import java.util.Scanner;
 import lombok.Getter;
 import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/** A command line interface for the Cassandra client. */
 public class CLI {
   private static final Logger LOGGER = LoggerFactory.getLogger(CLI.class);
   @Getter @Setter private static Thread thread;
@@ -22,12 +23,11 @@ public class CLI {
 
   /** Run the CLI */
   private static void run() {
+    Scanner scanner = new Scanner(System.in);
     while (true) {
-      Utils.wait(200);
-      String line = ConsoleWindow.readLine();
-      if (line.equals("exit")) {
-        System.exit(0);
-      }
+      // Utils.wait(200);
+      System.out.print("> ");
+      String line = scanner.nextLine().trim();
 
       switch (line.split(" ")[0]) {
         case "help":

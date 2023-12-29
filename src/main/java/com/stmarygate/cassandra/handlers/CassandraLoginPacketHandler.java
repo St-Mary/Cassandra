@@ -1,11 +1,12 @@
 package com.stmarygate.cassandra.handlers;
 
 import com.stmarygate.coral.network.BaseChannel;
-import com.stmarygate.coral.network.PacketHandler;
+import com.stmarygate.coral.network.packets.PacketHandler;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/** A {@link PacketHandler} which handles all packets for the Cassandra login. */
 public class CassandraLoginPacketHandler extends PacketHandler {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(CassandraLoginPacketHandler.class);
@@ -24,6 +25,7 @@ public class CassandraLoginPacketHandler extends PacketHandler {
    *
    * @param packet The version result packet to handle.
    */
+  @Override
   public void handlePacketVersionResult(PacketVersionResult packet) {
     LOGGER.info(
         "VersionResultPacket received. Version result: {}",

@@ -52,6 +52,7 @@ dependencies {
     implementation("org.springframework.security:spring-security-core:6.2.1")
     implementation("org.springframework.security:spring-security-crypto:6.2.1")
     implementation("org.bouncycastle:bcprov-jdk18on:1.77")
+    implementation("info.picocli:picocli:4.7.5")
 
     // Database
     implementation("org.postgresql:postgresql:42.7.0")
@@ -60,8 +61,8 @@ dependencies {
     implementation("org.hibernate.orm:hibernate-hikaricp:6.3.0.CR1")
     implementation("com.vladmihalcea:hibernate-types-60:2.21.1")
 
-    implementation("com.stmarygate:coral:1.0.13")
-    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.12.jar"))
+    implementation("com.stmarygate:coral:1.0.14")
+    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.14.jar"))
 }
 
 tasks {

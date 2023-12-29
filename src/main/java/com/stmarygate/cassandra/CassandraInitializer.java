@@ -12,6 +12,7 @@ import java.io.FileInputStream;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
 
+/** Initializes a {@link SocketChannel} by configuring its {@link ChannelPipeline} with necessary */
 public class CassandraInitializer extends BaseInitializer {
 
   /** The {@link BaseChannel} responsible for handling business logic. */
