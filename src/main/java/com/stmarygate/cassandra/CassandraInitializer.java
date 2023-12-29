@@ -4,11 +4,12 @@ import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.BaseInitializer;
 import com.stmarygate.coral.network.codec.PacketDecoder;
 import com.stmarygate.coral.network.codec.PacketEncoder;
+import com.stmarygate.coral.utils.SSLContextUtils;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.ssl.SslContext;
-import io.netty.handler.ssl.SslContextBuilder;
 import io.netty.handler.ssl.SslHandler;
+import java.io.FileInputStream;
+import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
 
 public class CassandraInitializer extends BaseInitializer {
@@ -31,26 +32,22 @@ public class CassandraInitializer extends BaseInitializer {
   protected void initChannel(SocketChannel ch) {
     ChannelPipeline pipeline = ch.pipeline();
 
-    // Add packet decoding and encoding handlers
     pipeline.addLast("decoder", new PacketDecoder());
     pipeline.addLast("encoder", new PacketEncoder());
 
     // SSL
     try {
-      SslContext sslContext =
-          SslContextBuilder.forClient()
-              .trustManager(getClass().getResourceAsStream("./ssl/csr.pem"))
-              .build();
-      SSLEngine engine = sslContext.newEngine(ch.alloc());
+      SSLContext sslContext =
+          SSLContextUtils.createAndInitSSLContext(
+              new FileInputStream("./ssl/client.jks"), Constants.getStorePass());
+      SSLEngine engine = sslContext.createSSLEngine();
       engine.setUseClientMode(true);
-      engine.setNeedClientAuth(false);
-      // Add engine to pipeline
+
       pipeline.addFirst("ssl", new SslHandler(engine));
     } catch (Exception e) {
       e.printStackTrace();
     }
 
-    // Add the business logic handler
     pipeline.addLast("handler", this.channel);
   }
 }

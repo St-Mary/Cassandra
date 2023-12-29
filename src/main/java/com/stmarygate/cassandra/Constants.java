@@ -13,7 +13,7 @@ public class Constants {
     return VERSION_MAJOR + "." + VERSION_MINOR + "." + VERSION_PATCH + " (" + VERSION_BUILD + ")";
   }
 
-  public static String getMode() {
-    return dotenv.get("MODE").toLowerCase();
+  public static String getStorePass() {
+    return dotenv.get("STOREPASS");
   }
 }
