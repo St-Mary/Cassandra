@@ -54,7 +54,7 @@ dependencies {
     implementation("org.jline:jline-reader:3.25.0")
     implementation("org.jline:jline-terminal:3.25.0")
 
-    implementation("com.stmarygate:coral:1.0.14")
+    implementation("com.stmarygate:coral:1.0.15")
     // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.15.jar"))
 }
 

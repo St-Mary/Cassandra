@@ -2,6 +2,7 @@ package com.stmarygate.cassandra.handlers;
 
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.packets.PacketHandler;
+import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.network.packets.server.PacketVersionResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,8 +28,24 @@ public class CassandraLoginPacketHandler extends PacketHandler {
    */
   @Override
   public void handlePacketVersionResult(PacketVersionResult packet) {
-    LOGGER.info(
-        "VersionResultPacket received. Version result: {}",
-        packet.isAccepted() ? "accepted" : "rejected");
+    if (!packet.isAccepted()) {
+      LOGGER.error("Version mismatch!");
+      this.getChannel().getSession().close();
+      System.exit(0);
+    }
+  }
+
+  /**
+   * Handle login result packet.
+   *
+   * @param packet The login result packet to handle.
+   */
+  @Override
+  public void handlePacketLoginResult(PacketLoginResult packet) {
+    if (!packet.isAccepted()) {
+      LOGGER.error("Login failed with code " + packet.getCode());
+    }
+
+    LOGGER.info("Login successful!");
   }
 }
