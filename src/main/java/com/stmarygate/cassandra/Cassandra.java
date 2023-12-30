@@ -32,7 +32,6 @@ public class Cassandra {
 
   /** Reload the Cassandra client. */
   public static void reload() {
-    CLI.kill();
     close();
     workerGroup = new NioEventLoopGroup();
     baseChannel = new CassandraChannel(CassandraLoginPacketHandler.class);
@@ -54,7 +53,7 @@ public class Cassandra {
     try {
       future = b.connect(address).sync();
       LOGGER.info("Time start: " + (System.currentTimeMillis() - time) + "ms");
-      CLI.start();
+      CLI.startCLI();
       future.channel().closeFuture().sync();
     } catch (Exception e) {
       if (e instanceof ConnectException) {

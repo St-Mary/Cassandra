@@ -37,7 +37,7 @@ public class ConsoleWindow {
   public static SocketAddress getAddress() {
     System.out.println("Enter the host and port to connect to (host:port): ");
     Scanner scanner = new Scanner(System.in);
-    System.out.print("> ");
+    System.out.print("Cassandra> ");
     String hostAndPort = scanner.nextLine().trim();
     String regex = "^(.*):(\\d+)$";
     if (hostAndPort.matches(regex)) {

@@ -45,24 +45,17 @@ dependencies {
     testImplementation(platform("org.junit:junit-bom:5.9.1"))
     testImplementation("org.junit.jupiter:junit-jupiter")
 
-    implementation("org.reflections", "reflections", "0.10.2")
     implementation("io.github.cdimascio", "java-dotenv", "5.1.1")
     implementation("ch.qos.logback", "logback-classic", "1.2.9")
     implementation("io.netty:netty-all:4.1.101.Final")
     implementation("org.springframework.security:spring-security-core:6.2.1")
     implementation("org.springframework.security:spring-security-crypto:6.2.1")
     implementation("org.bouncycastle:bcprov-jdk18on:1.77")
-    implementation("info.picocli:picocli:4.7.5")
-
-    // Database
-    implementation("org.postgresql:postgresql:42.7.0")
-    implementation("com.zaxxer:HikariCP:5.0.1")
-    implementation("org.hibernate.orm:hibernate-core:6.3.0.CR1")
-    implementation("org.hibernate.orm:hibernate-hikaricp:6.3.0.CR1")
-    implementation("com.vladmihalcea:hibernate-types-60:2.21.1")
+    implementation("org.jline:jline-reader:3.25.0")
+    implementation("org.jline:jline-terminal:3.25.0")
 
     implementation("com.stmarygate:coral:1.0.14")
-    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.14.jar"))
+    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.15.jar"))
 }
 
 tasks {
