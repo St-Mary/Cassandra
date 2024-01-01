@@ -46,7 +46,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 
     implementation("io.github.cdimascio", "java-dotenv", "5.1.1")
-    implementation("ch.qos.logback", "logback-classic", "1.2.9")
+    implementation("ch.qos.logback:logback-classic:1.4.14")
     implementation("io.netty:netty-all:4.1.101.Final")
     implementation("org.springframework.security:spring-security-core:6.2.1")
     implementation("org.springframework.security:spring-security-crypto:6.2.1")
@@ -54,8 +54,8 @@ dependencies {
     implementation("org.jline:jline-reader:3.25.0")
     implementation("org.jline:jline-terminal:3.25.0")
 
-    implementation("com.stmarygate:coral:1.0.15")
-    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.15.jar"))
+    implementation("com.stmarygate:coral:1.0.16")
+    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.16.jar"))
 }
 
 tasks {

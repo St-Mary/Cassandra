@@ -44,6 +44,7 @@ public class CassandraLoginPacketHandler extends PacketHandler {
   public void handlePacketLoginResult(PacketLoginResult packet) {
     if (!packet.isAccepted()) {
       LOGGER.error("Login failed with code " + packet.getCode());
+      return;
     }
 
     LOGGER.info("Login successful!");

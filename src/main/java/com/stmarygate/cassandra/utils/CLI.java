@@ -34,7 +34,7 @@ public class CLI extends InteractiveConsole {
   public static void sendPacket(String line) {
     String[] split = line.split(" ");
     String packet = split[1];
-    String[] data = line.substring(split[0].length() + split[1].length() + 2).split(" ");
+    String[] data = Arrays.copyOfRange(split, 2, split.length);
 
     // Get class from packet name
     Class<? extends Packet> clazz = getPacketClass(packet);
