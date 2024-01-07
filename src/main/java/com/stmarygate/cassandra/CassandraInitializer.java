@@ -11,9 +11,13 @@ import io.netty.handler.ssl.SslHandler;
 import java.io.FileInputStream;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /** Initializes a {@link SocketChannel} by configuring its {@link ChannelPipeline} with necessary */
 public class CassandraInitializer extends BaseInitializer {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(CassandraInitializer.class);
 
   /** The {@link BaseChannel} responsible for handling business logic. */
   private final BaseChannel channel;
@@ -46,7 +50,7 @@ public class CassandraInitializer extends BaseInitializer {
 
       pipeline.addFirst("ssl", new SslHandler(engine));
     } catch (Exception e) {
-      e.printStackTrace();
+      LOGGER.error("Error while initializing SSL", e);
     }
 
     pipeline.addLast("handler", this.channel);
