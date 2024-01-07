@@ -31,7 +31,6 @@ public class CassandraLoginPacketHandler extends PacketHandler {
     if (!packet.isAccepted()) {
       LOGGER.error("Version mismatch!");
       this.getChannel().getSession().close();
-      System.exit(0);
     }
   }
 

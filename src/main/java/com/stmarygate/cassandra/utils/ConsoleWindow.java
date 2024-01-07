@@ -3,6 +3,7 @@ package com.stmarygate.cassandra.utils;
 import com.stmarygate.cassandra.Constants;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 /** This class contains all the methods for the console window. */
@@ -36,7 +37,7 @@ public class ConsoleWindow {
    */
   public static SocketAddress getAddress() {
     System.out.println("Enter the host and port to connect to (host:port): ");
-    Scanner scanner = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
     System.out.print("Cassandra> ");
     String hostAndPort = scanner.nextLine().trim();
     String regex = "^(.*):(\\d+)$";
