@@ -22,7 +22,10 @@
   </p>
 </div>
 
-
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/e9af1e3febc4417a9b4734523da81db0)](https://app.codacy.com/gh/St-Mary/Cassandra/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![license](https://img.shields.io/github/license/st-mary/.github.svg)](https://github.com/St-Mary/.github/blob/main/LICENSE)
+![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg)
+![code with hearth by St Mary's team](https://img.shields.io/badge/%3C%2F%3E%20with%20%E2%99%A5%20by-St._Mary_Team-ff1414.svg)
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -46,7 +49,8 @@
 
 ## About Cassandra
 
-Game client responsible for handling user interactions and rendering the game interface.
+Game client responsible for handling user interactions and rendering the game
+interface.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
@@ -62,10 +66,12 @@ Game client responsible for handling user interactions and rendering the game in
 
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any
+Contributions are what make the open source community such an amazing place to
+learn, inspire, and create. Any
 contributions you make are **greatly appreciated**.
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also
+If you have a suggestion that would make this better, please fork the repo and
+create a pull request. You can also
 simply open an issue with the tag "enhancement".
 Don't forget to give the project a star! Thanks again!
 
@@ -95,7 +101,8 @@ Léa - [Discord](https://discord.com/users/985986599995187270) - [contact@aikoo.
 
 Saint Mary's Gate - [contact@stmarygate.com](mailto:contact@stmarygate.com)
 
-Project Link: [https://github.com/St-Mary/Cassandra](https://github.com/St-Mary/Cassandra)
+Project
+Link: [https://github.com/St-Mary/Cassandra](https://github.com/St-Mary/Cassandra)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
