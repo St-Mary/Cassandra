@@ -46,6 +46,8 @@
 
 ## About Cassandra
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e7fd60dfd27b495d99ce94208024a1fb)](https://app.codacy.com/gh/St-Mary/Cassandra?utm_source=github.com&utm_medium=referral&utm_content=St-Mary/Cassandra&utm_campaign=Badge_Grade)
+
 Game client responsible for handling user interactions and rendering the game interface.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
