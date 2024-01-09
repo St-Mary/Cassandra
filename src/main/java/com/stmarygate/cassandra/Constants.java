@@ -4,10 +4,15 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 /** This class contains all the constants for the Cassandra project. */
 public class Constants {
+
   public static final int VERSION_MAJOR = 0;
+
   public static final int VERSION_MINOR = 0;
+
   public static final int VERSION_PATCH = 1;
+
   public static final String VERSION_BUILD = "SNAPSHOT";
+
   public static final Dotenv dotenv = Dotenv.load();
 
   /**

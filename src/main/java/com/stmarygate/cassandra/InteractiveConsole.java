@@ -40,5 +40,7 @@ public class InteractiveConsole {
    *
    * @param userInput The user input to process.
    */
-  protected void processUserInput(String userInput) {}
+  protected void processUserInput(String userInput) {
+    // Empty idk why
+  }
 }

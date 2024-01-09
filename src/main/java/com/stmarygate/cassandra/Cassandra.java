@@ -15,7 +15,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Cassandra {
+
   private static final Logger LOGGER = LoggerFactory.getLogger(Cassandra.class);
+
   private static EventLoopGroup workerGroup = new NioEventLoopGroup();
 
   @Getter
@@ -23,6 +25,7 @@ public class Cassandra {
       new CassandraChannel(CassandraLoginPacketHandler.class);
 
   private static CassandraInitializer baseInitializer = new CassandraInitializer(baseChannel);
+
   private static ChannelFuture future;
 
   public static void main(String[] args) {
@@ -45,6 +48,7 @@ public class Cassandra {
    * @param address The address of the Luna server to connect to.
    */
   public static void start(SocketAddress address) {
+
     long time = System.currentTimeMillis();
 
     Bootstrap b = new Bootstrap();

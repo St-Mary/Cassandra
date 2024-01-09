@@ -93,10 +93,10 @@ public class CLI extends InteractiveConsole {
    */
   @SuppressWarnings("unchecked")
   private static Class<? extends Packet> getPacketClass(String packetName) {
-    packetName = packetName.substring(0, 1).toUpperCase() + packetName.substring(1);
+    String packetClassName = packetName.substring(0, 1).toUpperCase() + packetName.substring(1);
     try {
       return (Class<? extends Packet>)
-          Class.forName("com.stmarygate.coral.network.packets.client.Packet" + packetName);
+          Class.forName("com.stmarygate.coral.network.packets.client.Packet" + packetClassName);
     } catch (ClassNotFoundException e) {
       System.out.println("Invalid packet name.");
     }
