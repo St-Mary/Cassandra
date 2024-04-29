@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stmarygate.cassandra.game.GameApplicationController"
+            prefHeight="600" prefWidth="1060">
+    <stylesheets>
+        <URL value="@../css/Main.css" />
+    </stylesheets>
+    <Label text="Saint Mary's Gate" styleClass="titleGame" alignment="CENTER"
+           textAlignment="CENTER" layoutX="240" layoutY="80"/>
+
+    <VBox alignment="CENTER" spacing="10" prefWidth="1060" prefHeight="600">
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Server URL" styleClass="label" />
+            <TextField fx:id="serverUrl" styleClass="text-field" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Server Port" styleClass="label" />
+            <TextField fx:id="serverPort" styleClass="text-field" />
+        </HBox>
+    </VBox>
+
+    <Button text="Save" styleClass="pixel-button" layoutX="10" layoutY="550" onMouseClicked="#handleSaveBtn" />
+    <Button text="Cancel" styleClass="pixel-button-leave" layoutX="100" layoutY="550" onMouseClicked="#handleCancelBtn" />
+</AnchorPane>

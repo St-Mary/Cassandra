@@ -14,7 +14,7 @@
     <VBox alignment="CENTER" spacing="10" prefWidth="1060" prefHeight="600">
 
         <Button text="Jouer" styleClass="pixel-button" />
-        <Button text="Réglages" styleClass="pixel-button" />
+        <Button text="Réglages" styleClass="pixel-button" onMouseClicked="#handleSettingsBtn" />
     </VBox>
     <Button text="Quitter" styleClass="pixel-button-leave" layoutX="10"
             layoutY="550"
