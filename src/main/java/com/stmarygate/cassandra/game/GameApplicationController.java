@@ -1,13 +1,7 @@
 package com.stmarygate.cassandra.game;
 
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
-
 import java.io.IOException;
+import javafx.scene.input.MouseEvent;
 
 public class GameApplicationController {
 
@@ -20,8 +14,7 @@ public class GameApplicationController {
     GameApplication.getPrimaryStage().show();
   }
 
-  public void handleSaveBtn(MouseEvent mouseEvent) {
-  }
+  public void handleSaveBtn(MouseEvent mouseEvent) {}
 
   public void handleCancelBtn(MouseEvent mouseEvent) {
     GameApplication.showMainPage();
