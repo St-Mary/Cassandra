@@ -31,8 +31,8 @@ public class Cassandra {
 
   public static void main(String[] args) {
     GameApplication.main(args);
-    //ConsoleWindow.printHeader();
-    //reload();
+    // ConsoleWindow.printHeader();
+    // reload();
   }
 
   /** Reload the Cassandra client. */
