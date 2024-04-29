@@ -1,5 +1,6 @@
 package com.stmarygate.cassandra;
 
+import com.stmarygate.cassandra.game.GameApplication;
 import com.stmarygate.cassandra.handlers.CassandraLoginPacketHandler;
 import com.stmarygate.cassandra.utils.CLI;
 import com.stmarygate.cassandra.utils.ConsoleWindow;
@@ -29,8 +30,9 @@ public class Cassandra {
   private static ChannelFuture future;
 
   public static void main(String[] args) {
-    ConsoleWindow.printHeader();
-    reload();
+    GameApplication.main(args);
+    //ConsoleWindow.printHeader();
+    //reload();
   }
 
   /** Reload the Cassandra client. */

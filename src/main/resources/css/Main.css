@@ -1,0 +1,44 @@
+.box {
+    -fx-background-image: url("../img/background.jpeg");
+    -fx-background-size: cover;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+.titleGame {
+    -fx-font-family: "Retro Gaming";
+    -fx-font-size: 50px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+}
+
+.pixel-button {
+    -fx-background-color: #c0c0c0;
+    -fx-background-radius: 0;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-font-size: 12px;
+    -fx-text-fill: #000000;
+    -fx-padding: 10px 20px;
+}
+
+.pixel-button-leave {
+    -fx-background-color: red;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-font-size: 12px;
+    -fx-text-fill: #000000;
+    -fx-padding: 10px 20px;
+}
+
+.pixel-button-leave:hover {
+    -fx-background-color: #b00303;
+}
+
+.pixel-button:hover {
+    -fx-background-color: #a0a0a0;
+}
+
+.pixel-button:pressed {
+    -fx-background-color: #808080;
+}

@@ -1,6 +1,7 @@
 plugins {
     id("java")
     id("com.github.johnrengelman.shadow") version "7.1.2"
+    id ("org.openjfx.javafxplugin") version "0.1.0"
     application
     `maven-publish`
 }
@@ -55,9 +56,19 @@ dependencies {
     implementation("org.jline:jline-reader:3.25.0")
     implementation("org.jline:jline-terminal:3.25.0")
 
+    implementation("org.openjfx:javafx-fxml:23-ea+3")
+    implementation("org.openjfx:javafx-controls:23-ea+3")
+
+    // SQLite database HikariCP and Hibernate
+    implementation("org.xerial:sqlite-jdbc:3.45.3.0")
+    implementation("org.hibernate.orm:hibernate-core:6.4.1.Final")
+    implementation("org.hibernate.orm:hibernate-hikaricp:6.4.1.Final")
+
     implementation("com.stmarygate:coral:1.0.16")
     // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.16.jar"))
 }
+
+
 
 tasks {
     withType<Copy> {
