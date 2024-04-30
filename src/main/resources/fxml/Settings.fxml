@@ -9,7 +9,7 @@
 <?import java.net.URL?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.stmarygate.cassandra.game.GameApplicationController"
+            fx:controller="com.stmarygate.cassandra.game.GameSettingsController"
             prefHeight="600" prefWidth="1060">
     <stylesheets>
         <URL value="@../css/Main.css" />
@@ -19,15 +19,23 @@
 
     <VBox alignment="CENTER" spacing="10" prefWidth="1060" prefHeight="600">
         <HBox alignment="CENTER" spacing="10">
-            <Label text="Server URL" styleClass="label" />
-            <TextField fx:id="serverUrl" styleClass="text-field" />
+            <Label text="Server URL" styleClass="labeld" />
+            <TextField fx:id="serverUrl" styleClass="txtField" />
         </HBox>
         <HBox alignment="CENTER" spacing="10">
-            <Label text="Server Port" styleClass="label" />
-            <TextField fx:id="serverPort" styleClass="text-field" />
+            <Label text="Server Port" styleClass="labeld" />
+            <TextField fx:id="serverPort" styleClass="txtField" />
         </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Username" styleClass="labeld" />
+            <TextField fx:id="username" styleClass="txtField" />
+        </HBox>
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="Password" styleClass="labeld" />
+            <PasswordField fx:id="password" styleClass="txtField" />
+        </HBox>
+        <Button text="Save" styleClass="pixel-button" onMouseClicked="#handleSaveBtn" />
     </VBox>
 
-    <Button text="Save" styleClass="pixel-button" layoutX="10" layoutY="550" onMouseClicked="#handleSaveBtn" />
     <Button text="Cancel" styleClass="pixel-button-leave" layoutX="100" layoutY="550" onMouseClicked="#handleCancelBtn" />
 </AnchorPane>

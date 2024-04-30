@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DatabaseManager {
@@ -31,6 +32,11 @@ public class DatabaseManager {
    */
   public static void initializeTables() {
     query("CREATE TABLE IF NOT EXISTS settings (language TEXT, server_url TEXT, server_port INTEGER);");
+
+    // Set first server URL
+    query("INSERT INTO settings (server_url) VALUES ('http://localhost');");
+    query("INSERT INTO settings (server_port) VALUES ('8080')");
+    query("INSERT INTO settings (language) VALUES ('en')");
   }
 
   /**
@@ -44,6 +50,25 @@ public class DatabaseManager {
       stmt.close();
     } catch (Exception e) {
       LOGGER.error("Failed to execute query: " + query, e);
+    }
+  }
+
+  /**
+   * Execute a query and return the result.
+   *
+   * @param query The query to execute.
+   */
+  public static String queryResult(String query) {
+    try {
+      Statement stmt = c.createStatement();
+      ResultSet rs = stmt.executeQuery(query);
+      String result = rs.getString(1);
+      rs.close();
+      stmt.close();
+      return result;
+    } catch (Exception e) {
+      LOGGER.error("Failed to execute query: " + query, e);
+      return null;
     }
   }
 }
