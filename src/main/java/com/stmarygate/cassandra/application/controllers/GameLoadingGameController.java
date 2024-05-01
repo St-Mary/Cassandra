@@ -1,6 +1,7 @@
 package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.Cassandra;
+import com.stmarygate.cassandra.application.database.DatabaseManager;
 import com.stmarygate.cassandra.handlers.CassandraLoginPacketHandler;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
 import javafx.concurrent.Task;
@@ -64,8 +65,8 @@ public class GameLoadingGameController implements Initializable {
   private void loginToServer() throws InterruptedException {
     task.updateLoadingMessage("Trying to login to server...");
     task.updateLoadingProgress(0.5);
-    String username = "admin";
-    String password = "admin";
+    String username = DatabaseManager.queryResult("SELECT username FROM settings");
+    String password = DatabaseManager.queryResult("SELECT password FROM settings");
     Thread.sleep(1000);
     Cassandra.getBaseChannel().sendPacket(new PacketLoginUsingCredentials(username, password));
     waitForLoginResult();
@@ -79,6 +80,9 @@ public class GameLoadingGameController implements Initializable {
     if (!Cassandra.getBaseChannel().getPacketLoginResult().isAccepted()) {
       task.updateLoadingMessage("Login failed, please check your credentials.");
       progressBar.setVisible(false);
+    } else {
+      task.updateLoadingMessage("Login successful!");
+      task.updateLoadingProgress(1);
     }
   }
 }

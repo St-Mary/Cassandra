@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Edit settings page to load data from database at page loading">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameSettingsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/LoadingGame.fxml" afterDir="false" />
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Adding base of loading page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Cassandra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Cassandra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/InteractiveConsole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/game/GameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/GameApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/game/GameApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameApplicationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/game/GameSettingsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/game/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/database/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/handlers/CassandraLoginPacketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/handlers/CassandraLoginPacketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/utils/CLI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/utils/ConsoleWindow.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Settings.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +112,7 @@
       <workItem from="1714347139543" duration="440000" />
       <workItem from="1714348320423" duration="1735000" />
       <workItem from="1714354767427" duration="3271000" />
-      <workItem from="1714515087229" duration="13437000" />
+      <workItem from="1714515087229" duration="14483000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -138,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714517390852</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Adding base of loading page">
+      <option name="closed" value="true" />
+      <created>1714529282012</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714529282012</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +139,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Edit settings page to load data from database at page loading" />
-    <option name="LAST_COMMIT_MESSAGE" value="Edit settings page to load data from database at page loading" />
+    <MESSAGE value="Adding base of loading page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding base of loading page" />
   </component>
 </project>
