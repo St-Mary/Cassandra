@@ -2,15 +2,13 @@ package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.Cassandra;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
-import com.stmarygate.cassandra.handlers.CassandraLoginPacketHandler;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.concurrent.Task;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class GameLoadingGameController implements Initializable {
   public ProgressBar progressBar;
