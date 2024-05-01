@@ -2,15 +2,14 @@ package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.application.GameApplication;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class GameSettingsController implements Initializable {
   public TextField serverUrl;
@@ -26,7 +25,6 @@ public class GameSettingsController implements Initializable {
     username.setText(DatabaseManager.queryResult("SELECT username FROM settings"));
     password.setText(DatabaseManager.queryResult("SELECT password FROM settings"));
   }
-
 
   public void handleLeaveBtn() {
     System.exit(0);

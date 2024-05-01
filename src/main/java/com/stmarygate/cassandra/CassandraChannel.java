@@ -18,8 +18,7 @@ import org.slf4j.LoggerFactory;
 public class CassandraChannel extends BaseChannel {
 
   private final Logger LOGGER = LoggerFactory.getLogger(CassandraChannel.class);
-  @Getter @Setter
-  private PacketLoginResult packetLoginResult;
+  @Getter @Setter private PacketLoginResult packetLoginResult;
 
   /**
    * Create a new packet handler.
