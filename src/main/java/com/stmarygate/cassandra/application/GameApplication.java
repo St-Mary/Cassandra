@@ -1,6 +1,9 @@
-package com.stmarygate.cassandra.game;
+package com.stmarygate.cassandra.application;
 
-import com.stmarygate.cassandra.game.database.DatabaseManager;
+import com.stmarygate.cassandra.Cassandra;
+import com.stmarygate.cassandra.Utils;
+import com.stmarygate.cassandra.application.controllers.GameLoadingGameController;
+import com.stmarygate.cassandra.application.database.DatabaseManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -59,6 +62,22 @@ public class GameApplication extends Application {
               ".css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate - Settings");
+      primaryStage.show();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static void showLoadingPage() {
+    try {
+      FXMLLoader loader = new FXMLLoader(GameApplication.class.getClassLoader().getResource("fxml" +
+              "/LoadingGame.fxml"));
+      loader.setController(new GameLoadingGameController());
+      Scene scene = new Scene(loader.load(), 1060, 600);
+      scene.getStylesheets().add(GameApplication.class.getClassLoader().getResource("css/Main" +
+              ".css").toExternalForm());
+      primaryStage.setScene(scene);
+      primaryStage.setTitle("Saint Mary's Gate - Loading");
       primaryStage.show();
     } catch (Exception e) {
       e.printStackTrace();

@@ -1,5 +1,6 @@
 package com.stmarygate.cassandra.handlers;
 
+import com.stmarygate.cassandra.Cassandra;
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.packets.PacketHandler;
 import com.stmarygate.coral.network.packets.server.PacketLoginResult;
@@ -41,6 +42,7 @@ public class CassandraLoginPacketHandler extends PacketHandler {
    */
   @Override
   public void handlePacketLoginResult(PacketLoginResult packet) {
+    Cassandra.getBaseChannel().setPacketLoginResult(packet);
     if (!packet.isAccepted()) {
       LOGGER.error("Login failed with code " + packet.getCode());
       return;

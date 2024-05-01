@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefWidth="1060" prefHeight="600">
+    <stylesheets>
+        <URL value="@../css/Main.css"/>
+    </stylesheets>
+    <Label text="Saint Mary's Gate" styleClass="titleGame" alignment="CENTER"
+           textAlignment="CENTER" layoutX="240" layoutY="80"/>
+
+    <VBox alignment="CENTER" layoutY="250" layoutX="320" styleClass="vboxLoading">
+        <ProgressBar fx:id="progressBar" styleClass="progressBar" prefWidth="400" prefHeight="20"/>
+        <Label fx:id="loadingStatus" text="Loading Game..." maxWidth="350"
+               wrapText="true"
+               textAlignment="CENTER"
+               alignment="CENTER"
+               styleClass="loadingLabel"/>
+    </VBox>
+</AnchorPane>

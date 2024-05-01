@@ -9,7 +9,7 @@
 <?import java.net.URL?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.stmarygate.cassandra.game.GameSettingsController"
+            fx:controller="com.stmarygate.cassandra.application.controllers.GameSettingsController"
             prefHeight="600" prefWidth="1060">
     <stylesheets>
         <URL value="@../css/Main.css" />
@@ -35,7 +35,8 @@
             <PasswordField fx:id="password" styleClass="txtField" />
         </HBox>
         <Button text="Save" styleClass="pixel-button" onMouseClicked="#handleSaveBtn" />
+        <Label fx:id="savedLabel" styleClass="labeld" visible="false" />
     </VBox>
 
-    <Button text="Cancel" styleClass="pixel-button-leave" layoutX="100" layoutY="550" onMouseClicked="#handleCancelBtn" />
+    <Button text="Cancel" styleClass="pixel-button-leave" layoutX="10" layoutY="550" onMouseClicked="#handleCancelBtn" />
 </AnchorPane>

@@ -5,7 +5,7 @@
 
 <?import java.net.URL?>
 <AnchorPane styleClass="box" prefWidth="1060" prefHeight="600"
-            fx:controller="com.stmarygate.cassandra.game.GameApplicationController" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+            fx:controller="com.stmarygate.cassandra.application.controllers.GameApplicationController" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@../css/Main.css" />
     </stylesheets>
@@ -13,7 +13,7 @@
            textAlignment="CENTER" layoutX="240" layoutY="80"/>
     <VBox alignment="CENTER" spacing="10" prefWidth="1060" prefHeight="600">
 
-        <Button text="Jouer" styleClass="pixel-button" />
+        <Button text="Jouer" styleClass="pixel-button" onMouseClicked="#handlePlayBtn" />
         <Button text="Réglages" styleClass="pixel-button" onMouseClicked="#handleSettingsBtn" />
     </VBox>
     <Button text="Quitter" styleClass="pixel-button-leave" layoutX="10"

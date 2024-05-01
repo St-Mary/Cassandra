@@ -1,15 +1,16 @@
 package com.stmarygate.cassandra;
 
-import com.stmarygate.cassandra.game.GameApplication;
+import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.controllers.GameLoadingGameController;
+import com.stmarygate.cassandra.application.database.DatabaseManager;
 import com.stmarygate.cassandra.handlers.CassandraLoginPacketHandler;
-import com.stmarygate.cassandra.utils.CLI;
-import com.stmarygate.cassandra.utils.ConsoleWindow;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import java.net.ConnectException;
+import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import lombok.Getter;
 import org.slf4j.Logger;
@@ -28,20 +29,23 @@ public class Cassandra {
   private static CassandraInitializer baseInitializer = new CassandraInitializer(baseChannel);
 
   private static ChannelFuture future;
+  private static Thread clientThread;
 
   public static void main(String[] args) {
     GameApplication.main(args);
-    //ConsoleWindow.printHeader();
-    //reload();
   }
 
   /** Reload the Cassandra client. */
   public static void reload() {
     close();
-    workerGroup = new NioEventLoopGroup();
-    baseChannel = new CassandraChannel(CassandraLoginPacketHandler.class);
-    baseInitializer = new CassandraInitializer(baseChannel);
-    start(ConsoleWindow.getAddress());
+    String address = DatabaseManager.queryResult("SELECT server_url FROM settings");
+    String port = DatabaseManager.queryResult("SELECT server_port FROM settings");
+    LOGGER.info("Starting Cassandra client... " + address + ":" + port);
+
+    clientThread = new Thread(() -> start(new InetSocketAddress(address,
+            Integer.parseInt(port))));
+    clientThread.setName("CassandraClient");
+    clientThread.start();
   }
 
   /**
@@ -50,27 +54,36 @@ public class Cassandra {
    * @param address The address of the Luna server to connect to.
    */
   public static void start(SocketAddress address) {
-
+    workerGroup = new NioEventLoopGroup();
+    baseChannel = new CassandraChannel(CassandraLoginPacketHandler.class);
+    baseInitializer = new CassandraInitializer(baseChannel);
     long time = System.currentTimeMillis();
 
     Bootstrap b = new Bootstrap();
     configureBootstrap(b);
 
     try {
+      LOGGER.info("Connecting to Luna at " + address);
       future = b.connect(address).sync();
+
+      // Send a message to FX thread to update the progress bar
+
       LOGGER.info("Time start: " + (System.currentTimeMillis() - time) + "ms");
-      CLI.startCLI();
       future.channel().closeFuture().sync();
     } catch (Exception e) {
-      if (e instanceof ConnectException) {
-        LOGGER.error("Error while starting Cassandra, please check the address and try again");
-        reload();
-      } else {
-        LOGGER.error("Failed to start Cassandra");
-      }
+      LOGGER.error("Failed to start Cassandra");
     } finally {
       close();
     }
+  }
+
+  /**
+   * Check if the Cassandra client is connected to the Luna server.
+   *
+   * @return True if the client is connected, false otherwise.
+   */
+  public static boolean isConnected() {
+    return future != null && future.channel().isActive();
   }
 
   /** Close the connection to the Luna server. */

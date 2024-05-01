@@ -1,4 +1,4 @@
-package com.stmarygate.cassandra.game.database;
+package com.stmarygate.cassandra.application.database;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Objects;
 
 public class DatabaseManager {
   private static final Logger LOGGER = LoggerFactory.getLogger(DatabaseManager.class);
@@ -31,12 +32,14 @@ public class DatabaseManager {
    * Initialize all tables.
    */
   public static void initializeTables() {
-    query("CREATE TABLE IF NOT EXISTS settings (language TEXT, server_url TEXT, server_port INTEGER);");
+    query("CREATE TABLE IF NOT EXISTS settings (language TEXT, server_url TEXT, server_port " +
+            "INTEGER, username TEXT, password TEXT);");
 
-    // Set first server URL
-    query("INSERT INTO settings (server_url) VALUES ('http://localhost');");
-    query("INSERT INTO settings (server_port) VALUES ('8080')");
-    query("INSERT INTO settings (language) VALUES ('en')");
+    // Check if the settings table is empty.
+    if (Objects.equals(queryResult("SELECT COUNT(*) FROM settings"), "0")) {
+      query("INSERT INTO settings (language, server_url, server_port, username, password) " +
+              "VALUES ('en', 'localhost', 8080, 'admin', 'admin');");
+    }
   }
 
   /**
