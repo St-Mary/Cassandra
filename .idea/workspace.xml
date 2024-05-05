@@ -4,29 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Adding login loading bar">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/cache/PlayerCache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/codec/CassandraPacketEncoder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/handlers/CassandraGamePacketHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/Game.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/announcement_board.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/badges_board.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/profile_board.png" afterDir="false" />
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Finish loading, player and start game ui">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/PixelOperator8-Bold.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/PixelOperator8.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/empty_bar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/star.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Cassandra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Cassandra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Constants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/GameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/GameApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameSettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameSettingsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/database/DatabaseManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/handlers/CassandraLoginPacketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/handlers/CassandraLoginPacketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,7 +162,7 @@
       <workItem from="1714645817009" duration="2351000" />
       <workItem from="1714686873420" duration="632000" />
       <workItem from="1714687597366" duration="643000" />
-      <workItem from="1714857465695" duration="19561000" />
+      <workItem from="1714857465695" duration="24832000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -181,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714530419761</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Finish loading, player and start game ui">
+      <option name="closed" value="true" />
+      <created>1714943432246</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714943432246</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +207,8 @@
     <MESSAGE value="Edit settings page to load data from database at page loading" />
     <MESSAGE value="Adding base of loading page" />
     <MESSAGE value="Adding login loading bar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding login loading bar" />
+    <MESSAGE value="Finish loading, player and start game ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish loading, player and start game ui" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cassandra$Cassandra.ic" NAME="Cassandra Coverage Results" MODIFIED="1714602875388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

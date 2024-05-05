@@ -4,6 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <?import java.net.URL?>
+<?import javafx.scene.image.ImageView?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.stmarygate.cassandra.application.controllers.GameController"
@@ -18,16 +19,24 @@
     <Pane layoutY="20" layoutX="20" prefWidth="450" prefHeight="450"
           styleClass="vboxPlayer">
         <Label fx:id="playerName" styleClass="playerLabelTitle" alignment="CENTER" textAlignment="CENTER"
-               layoutY="30" prefWidth="416"/>
+               layoutY="30" prefWidth="437"/>
 
-        <VBox prefWidth="416" prefHeight="444" alignment="CENTER" styleClass="hBoxPlayerStats">
-            <HBox alignment="CENTER">
-                <Label text="Exp:" styleClass="playerLabel"/>
-                <Label fx:id="playerExps" styleClass="playerLabelValue"/>
-            </HBox>
-            <HBox alignment="CENTER">
-                <Label text="Health:" styleClass="playerLabel"/>
+        <VBox prefWidth="417" styleClass="hBoxPlayerStats"
+              layoutY="120" layoutX="-40">
+            <HBox alignment="CENTER" spacing="5">
+                <HBox alignment="CENTER" spacing="5">
+                    <ImageView fx:id="heartImage" fitHeight="25" fitWidth="25"/>
+                    <ImageView fx:id="healthBar"/>
+                </HBox>
                 <Label fx:id="playerLives" styleClass="playerLabelValue"/>
+                <Label fx:id="playerLivesMax" styleClass="playerLabelValue"/>
+            </HBox>
+            <HBox alignment="CENTER" spacing="5">
+                <HBox alignment="CENTER" spacing="5">
+                    <ImageView fx:id="starImage" fitHeight="25" fitWidth="25"/>
+                    <ImageView fx:id="starBar"/>
+                    <Label fx:id="playerExps" styleClass="playerLabelValue"/>
+                </HBox>
             </HBox>
         </VBox>
     </Pane>
