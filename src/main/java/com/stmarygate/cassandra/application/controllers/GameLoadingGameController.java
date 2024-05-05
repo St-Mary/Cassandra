@@ -90,11 +90,12 @@ public class GameLoadingGameController {
         }
       }
 
-      if (Cassandra.getBaseChannel().getPacketLoginResult() != null &&
-              Cassandra.getBaseChannel().getPacketLoginResult().isAccepted()) {
+      if (Cassandra.getBaseChannel().getPacketLoginResult() != null
+          && Cassandra.getBaseChannel().getPacketLoginResult().isAccepted()) {
 
         updateMessage("Login successful!");
-        Cassandra.getBaseChannel().setHandler(new CassandraGamePacketHandler(Cassandra.getBaseChannel()));
+        Cassandra.getBaseChannel()
+            .setHandler(new CassandraGamePacketHandler(Cassandra.getBaseChannel()));
         getUserInformation();
       } else {
         updateMessage("Login failed, please check your credentials.");
@@ -108,7 +109,8 @@ public class GameLoadingGameController {
       long startTime = System.currentTimeMillis();
 
       try {
-        Cassandra.getBaseChannel().sendPacket(new PacketGetPlayerInformations(PlayerCache.getAccount().getId()));
+        Cassandra.getBaseChannel()
+            .sendPacket(new PacketGetPlayerInformations(PlayerCache.getAccount().getId()));
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -126,7 +128,8 @@ public class GameLoadingGameController {
       }
 
       if (Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult() != null) {
-        PlayerCache.setPlayer(Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult().getPlayer());
+        PlayerCache.setPlayer(
+            Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult().getPlayer());
         updateMessage("Done!");
         updateProgress(1, 1);
         Utils.wait(1000);

@@ -1,12 +1,11 @@
 package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.cache.PlayerCache;
+import com.stmarygate.coral.entities.Player;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.stmarygate.cassandra.cache.PlayerCache;
-import com.stmarygate.coral.entities.Player;
 import javafx.fxml.Initializable;
 
 public class GameApplicationController implements Initializable {
@@ -19,7 +18,7 @@ public class GameApplicationController implements Initializable {
   }
 
   public void handlePlayBtn() throws IOException {
-    //GameApplication.showLoadingPage();
+    // GameApplication.showLoadingPage();
     Player p = new Player();
     p.setUsername("Test");
     p.setExp(100L);

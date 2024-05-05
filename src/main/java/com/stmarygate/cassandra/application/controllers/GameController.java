@@ -2,11 +2,10 @@ package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.cache.PlayerCache;
 import com.stmarygate.coral.entities.Player;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
 public class GameController implements Initializable {
   public Label playerName;
