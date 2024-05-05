@@ -1,7 +1,6 @@
 package com.stmarygate.cassandra;
 
 import com.stmarygate.cassandra.application.GameApplication;
-import com.stmarygate.cassandra.application.controllers.GameLoadingGameController;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import com.stmarygate.cassandra.handlers.CassandraLoginPacketHandler;
 import io.netty.bootstrap.Bootstrap;
@@ -9,7 +8,6 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import java.net.ConnectException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
 import lombok.Getter;
@@ -42,8 +40,7 @@ public class Cassandra {
     String port = DatabaseManager.queryResult("SELECT server_port FROM settings");
     LOGGER.info("Starting Cassandra client... " + address + ":" + port);
 
-    clientThread = new Thread(() -> start(new InetSocketAddress(address,
-            Integer.parseInt(port))));
+    clientThread = new Thread(() -> start(new InetSocketAddress(address, Integer.parseInt(port))));
     clientThread.setName("CassandraClient");
     clientThread.start();
   }

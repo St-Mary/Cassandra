@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.stmarygate.cassandra.application.controllers.GameController"
+            prefWidth="1060" prefHeight="600">
+
+    <stylesheets>
+        <URL value="@../css/Game.css"/>
+    </stylesheets>
+
+
+
+    <Pane layoutY="20" layoutX="20" prefWidth="450" prefHeight="450"
+          styleClass="vboxPlayer">
+        <Label fx:id="playerName" styleClass="playerLabelTitle" alignment="CENTER" textAlignment="CENTER"
+               layoutY="30" prefWidth="416"/>
+
+        <VBox prefWidth="416" prefHeight="444" alignment="CENTER" styleClass="hBoxPlayerStats">
+            <HBox alignment="CENTER">
+                <Label text="Exp:" styleClass="playerLabel"/>
+                <Label fx:id="playerExps" styleClass="playerLabelValue"/>
+            </HBox>
+            <HBox alignment="CENTER">
+                <Label text="Health:" styleClass="playerLabel"/>
+                <Label fx:id="playerLives" styleClass="playerLabelValue"/>
+            </HBox>
+        </VBox>
+    </Pane>
+</AnchorPane>

@@ -89,3 +89,9 @@
     -fx-font-weight: bold;
     -fx-text-fill: #000000;
 }
+
+.vboxPlayer {
+    -fx-alignment: center;
+    -fx-spacing: 10px;
+    -fx-layout-x: 50%;
+}

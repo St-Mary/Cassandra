@@ -14,6 +14,7 @@ public class Constants {
   public static final String VERSION_BUILD = "SNAPSHOT";
 
   public static final Dotenv dotenv = Dotenv.load();
+  public static Long getMaxTimeOutConnection = 10000L;
 
   /**
    * Get the formatted version.

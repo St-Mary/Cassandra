@@ -1,5 +1,6 @@
 package com.stmarygate.cassandra;
 
+import com.stmarygate.cassandra.codec.CassandraPacketEncoder;
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.BaseInitializer;
 import com.stmarygate.coral.network.codec.PacketDecoder;
@@ -38,7 +39,7 @@ public class CassandraInitializer extends BaseInitializer {
     ChannelPipeline pipeline = ch.pipeline();
 
     pipeline.addLast("decoder", new PacketDecoder());
-    pipeline.addLast("encoder", new PacketEncoder());
+    pipeline.addLast("encoder", new CassandraPacketEncoder());
 
     // SSL
     try {

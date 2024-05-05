@@ -2,6 +2,7 @@ package com.stmarygate.cassandra;
 
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.packets.PacketHandler;
+import com.stmarygate.coral.network.packets.server.PacketGetPlayerInformationsResult;
 import com.stmarygate.coral.network.packets.server.PacketLoginResult;
 import com.stmarygate.coral.utils.Utils;
 import io.netty.channel.*;
@@ -18,8 +19,8 @@ import org.slf4j.LoggerFactory;
 public class CassandraChannel extends BaseChannel {
 
   private final Logger LOGGER = LoggerFactory.getLogger(CassandraChannel.class);
-  @Getter @Setter
-  private PacketLoginResult packetLoginResult;
+  @Getter @Setter private PacketLoginResult packetLoginResult;
+  @Getter @Setter private PacketGetPlayerInformationsResult packetGetPlayerInformationsResult;
 
   /**
    * Create a new packet handler.

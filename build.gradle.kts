@@ -64,8 +64,9 @@ dependencies {
     implementation("org.hibernate.orm:hibernate-core:6.4.1.Final")
     implementation("org.hibernate.orm:hibernate-hikaricp:6.4.1.Final")
 
-    implementation("com.stmarygate:coral:1.0.16")
-    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build/libs/coral-1.0.16.jar"))
+    // implementation("com.stmarygate:coral:1.0.16")
+    implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build" +
+            "/libs/coral-1.0.18.jar"))
 }
 
 

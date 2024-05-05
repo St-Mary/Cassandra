@@ -1,0 +1,33 @@
+.vboxPlayer {
+    -fx-background-image: url("../img/profile_board.png");
+    -fx-background-size: cover;
+}
+
+.playerLabelTitle {
+    -fx-font-family: "Pixel Operator 8";
+    -fx-font-size: 25px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-alignment: center;
+
+}
+
+.playerStatValue {
+    -fx-font-family: "Retro Gaming";
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-spacing: 10px;
+}
+
+.playerStatLabelValue {
+    -fx-font-family: "Retro Gaming";
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+    -fx-spacing: 10px;
+}
+
+.hBoxPlayerStats {
+    -fx-spacing: 10px;
+}
