@@ -26,9 +26,8 @@ public class GameController implements Initializable {
     initializeHealth(player);
     initializeExp(player);
   }
-
   private void initializeExp(Player player) {
-    playerExps.setText(String.valueOf(player.getExp()) + "/" + player.getExpToNextLevel());
+    playerExps.setText(player.getExp() + "/" + player.getExpToNextLevel());
     starImage.setImage(new Image(GameController.class.getResourceAsStream("/img/star.png")));
     // Set the player's image based on the player's level
     double expPercentage = (double) player.getExp() / player.getExpToNextLevel();

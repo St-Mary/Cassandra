@@ -25,14 +25,14 @@
             <HBox alignment="CENTER" spacing="5">
                 <HBox alignment="CENTER" spacing="5">
                     <ImageView fx:id="heartImage" fitHeight="25" fitWidth="25"/>
-                    <ImageView fx:id="healthBar" layoutX="-30"/>
+                    <ImageView fx:id="healthBar"/>
                 </HBox>
                 <Label fx:id="playerLives" styleClass="playerLabelValue"/>
             </HBox>
             <HBox alignment="CENTER" spacing="5">
                 <HBox alignment="CENTER" spacing="5">
                     <ImageView fx:id="starImage" fitHeight="25" fitWidth="25"/>
-                    <ImageView fx:id="starBar" layoutX="-30"/>
+                    <ImageView fx:id="starBar"/>
                 </HBox>
                 <Label fx:id="playerExps" styleClass="playerLabelValue"/>
             </HBox>

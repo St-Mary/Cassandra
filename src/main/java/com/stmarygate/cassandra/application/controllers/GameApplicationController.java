@@ -20,7 +20,7 @@ public class GameApplicationController implements Initializable {
   public void handlePlayBtn() throws IOException {
     // GameApplication.showLoadingPage();
     Player p = new Player();
-    p.setUsername("Test");
+    p.setUsername("Player Name");
     p.setExp(100L);
     p.setLevel(1);
     p.setMana(100L);
