@@ -128,8 +128,7 @@ public class GameLoadingGameController {
       }
 
       if (Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult() != null) {
-        PlayerCache.setPlayer(
-            Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult().getPlayer());
+        PlayerCache.setPlayer(Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult().getPlayer());
         updateMessage("Done!");
         updateProgress(1, 1);
         Utils.wait(1000);
