@@ -31,6 +31,7 @@ public class GameApplicationController implements Initializable {
     p.setHealth(78);
     p.setMaxHealth(100);
     p.setStamina(100L);
+    p.setExpToNextLevel(200L);
     PlayerCache.setPlayer(p);
     GameApplication.showGamePage();
   }

@@ -13,7 +13,6 @@ public class GameController implements Initializable {
   public Label playerName;
   public Label playerLives;
   public Label playerExps;
-  public Label playerLivesMax;
   public ImageView heartImage;
   public ImageView healthBar;
   public ImageView starImage;
@@ -25,39 +24,39 @@ public class GameController implements Initializable {
     playerName.setText(player.getUsername());
 
     initializeHealth(player);
-    //initializeExp(player);
+    initializeExp(player);
   }
 
   private void initializeExp(Player player) {
-    playerExps.setText(String.valueOf(player.getExp()));
+    playerExps.setText(String.valueOf(player.getExp()) + "/" + player.getExpToNextLevel());
     starImage.setImage(new Image(GameController.class.getResourceAsStream("/img/star.png")));
     // Set the player's image based on the player's level
-    double healthPercentage = (double) player.getHealth() / player.getMaxHealth();
-    if (healthPercentage == 1) {
+    double expPercentage = (double) player.getExp() / player.getExpToNextLevel();
+    if (expPercentage == 1) {
       starBar.setImage(
               new Image(
                       GameController.class.getResourceAsStream(
-                              "/img" + "/health_bar/health_bar0" + ".png")));
-    } else if (healthPercentage >= 0.75) {
+                              "/img" + "/star_bar/star_bar0" + ".png")));
+    } else if (expPercentage >= 0.75) {
       starBar.setImage(
               new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar1" + ".png")));
-    } else if (healthPercentage >= 0.5) {
+                      GameController.class.getResourceAsStream("/img/exp_bar/exp_1" + ".png")));
+    } else if (expPercentage >= 0.5) {
       starBar.setImage(
               new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar2" + ".png")));
-    } else if (healthPercentage >= 0.25) {
+                      GameController.class.getResourceAsStream("/img/exp_bar/exp_2" + ".png")));
+    } else if (expPercentage >= 0.25) {
       starBar.setImage(
               new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar3" + ".png")));
-    } else if (healthPercentage >= 0.15) {
+                      GameController.class.getResourceAsStream("/img/exp_bar/exp_3" + ".png")));
+    } else if (expPercentage >= 0.15) {
       starBar.setImage(
               new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar4" + ".png")));
+                      GameController.class.getResourceAsStream("/img/exp_bar/exp_4" + ".png")));
     } else {
       starBar.setImage(
               new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar5" + ".png")));
+                      GameController.class.getResourceAsStream("/img/exp_bar/exp_5" + ".png")));
     }
 
     if (player.getExp() == 0) {

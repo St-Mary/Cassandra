@@ -4,36 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Finish loading, player and start game ui">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/PixelOperator8-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fonts/PixelOperator8.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/empty_bar.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/health_bar/health_bar5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana_bar/mana_bar5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/star.png" afterDir="false" />
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="First gui">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/exp_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/exp_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/exp_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/exp_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/exp_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/exp_bar/exp_5.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameApplicationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/exp_bar/sprite_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/star.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,27 +76,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Cassandra.executor": "Run",
-    "Gradle.Build cassandra.executor": "Run",
-    "Gradle.cassandra [:Cassandra.main()].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/cassandra/src/main/resources/fxml",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "Errors",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Cassandra.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Build cassandra.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.cassandra [:Cassandra.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/cassandra/src/main/resources/fxml&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/fxml" />
@@ -162,7 +150,8 @@
       <workItem from="1714645817009" duration="2351000" />
       <workItem from="1714686873420" duration="632000" />
       <workItem from="1714687597366" duration="643000" />
-      <workItem from="1714857465695" duration="24832000" />
+      <workItem from="1714857465695" duration="25015000" />
+      <workItem from="1714981060393" duration="1078000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -196,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714943432246</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="First gui">
+      <option name="closed" value="true" />
+      <created>1714949237678</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1714949237679</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +205,8 @@
     <MESSAGE value="Adding base of loading page" />
     <MESSAGE value="Adding login loading bar" />
     <MESSAGE value="Finish loading, player and start game ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finish loading, player and start game ui" />
+    <MESSAGE value="First gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="First gui" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cassandra$Cassandra.ic" NAME="Cassandra Coverage Results" MODIFIED="1714602875388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

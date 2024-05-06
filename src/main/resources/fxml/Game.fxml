@@ -21,22 +21,20 @@
         <Label fx:id="playerName" styleClass="playerLabelTitle" alignment="CENTER" textAlignment="CENTER"
                layoutY="30" prefWidth="437"/>
 
-        <VBox prefWidth="417" styleClass="hBoxPlayerStats"
-              layoutY="120" layoutX="-40">
+        <VBox prefWidth="417" styleClass="hBoxPlayerStats" layoutY="120" layoutX="-40" >
             <HBox alignment="CENTER" spacing="5">
                 <HBox alignment="CENTER" spacing="5">
                     <ImageView fx:id="heartImage" fitHeight="25" fitWidth="25"/>
-                    <ImageView fx:id="healthBar"/>
+                    <ImageView fx:id="healthBar" layoutX="-30"/>
                 </HBox>
                 <Label fx:id="playerLives" styleClass="playerLabelValue"/>
-                <Label fx:id="playerLivesMax" styleClass="playerLabelValue"/>
             </HBox>
             <HBox alignment="CENTER" spacing="5">
                 <HBox alignment="CENTER" spacing="5">
                     <ImageView fx:id="starImage" fitHeight="25" fitWidth="25"/>
-                    <ImageView fx:id="starBar"/>
-                    <Label fx:id="playerExps" styleClass="playerLabelValue"/>
+                    <ImageView fx:id="starBar" layoutX="-30"/>
                 </HBox>
+                <Label fx:id="playerExps" styleClass="playerLabelValue"/>
             </HBox>
         </VBox>
     </Pane>
