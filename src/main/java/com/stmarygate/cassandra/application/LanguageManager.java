@@ -3,23 +3,24 @@ package com.stmarygate.cassandra.application;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.stmarygate.cassandra.Cassandra;
 import lombok.Setter;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 
 public class LanguageManager {
 
-  private static final String LANGUAGES_DIRECTORY = "translations/";
+  private static final String LANGUAGES_DIRECTORY = "translations";
   private static final Map<String, Map<String, String>> translations = new HashMap<>();
 
   public static void loadLanguages() {
-    File directory =
-            new File(LanguageManager.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
+    File directory = new File(Cassandra.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
 
+    // If executed in a jar
+    if (!directory.exists()) directory =
+            new File(Cassandra.class.getResource("/" + LANGUAGES_DIRECTORY).getFile());
 
     Gson gson = new Gson();
     for (File file : directory.listFiles()) {

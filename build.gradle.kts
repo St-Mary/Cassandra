@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.stmarygate"
-version = "1.0-SNAPSHOT"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -89,13 +89,19 @@ tasks.jar {
     configurations["compileClasspath"].forEach { file: File ->
         from(zipTree(file.absoluteFile))
     }
+
+    exclude("META-INF/*.SF")
 }
 
 tasks.shadowJar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    archiveBaseName.set("cassandra")
+    archiveBaseName.set("cassandra-${version}")
     archiveClassifier.set("")
     archiveVersion.set("")
+    manifest {
+        attributes["Main-Class"] = "com.stmarygate.cassandra.Cassandra"
+    }
+    mustRunAfter("distTar", "distZip", "startScripts")
 }
 
 tasks.test {
