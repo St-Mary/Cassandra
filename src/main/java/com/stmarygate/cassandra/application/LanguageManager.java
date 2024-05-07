@@ -3,8 +3,6 @@ package com.stmarygate.cassandra.application;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import lombok.Setter;
-
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,8 +16,7 @@ public class LanguageManager {
 
   public static void loadLanguages() {
     File directory =
-            new File(LanguageManager.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
-
+        new File(LanguageManager.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
 
     Gson gson = new Gson();
     for (File file : directory.listFiles()) {
@@ -31,8 +28,8 @@ public class LanguageManager {
             String language = translationEntry.getKey();
             String translationValue = translationEntry.getValue().getAsString();
 
-            Map<String, String> translationsForFile = translations.computeIfAbsent(language,
-                    k -> new HashMap<>());
+            Map<String, String> translationsForFile =
+                translations.computeIfAbsent(language, k -> new HashMap<>());
             translationsForFile.put(entry.getKey(), translationValue);
           }
         }
