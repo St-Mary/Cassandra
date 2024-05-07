@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.stmarygate.cassandra.Cassandra;
-import lombok.Setter;
-
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,11 +14,12 @@ public class LanguageManager {
   private static final Map<String, Map<String, String>> translations = new HashMap<>();
 
   public static void loadLanguages() {
-    File directory = new File(Cassandra.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
+    File directory =
+        new File(Cassandra.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
 
     // If executed in a jar
-    if (!directory.exists()) directory =
-            new File(Cassandra.class.getResource("/" + LANGUAGES_DIRECTORY).getFile());
+    if (!directory.exists())
+      directory = new File(Cassandra.class.getResource("/" + LANGUAGES_DIRECTORY).getFile());
 
     Gson gson = new Gson();
     for (File file : directory.listFiles()) {
@@ -32,8 +31,8 @@ public class LanguageManager {
             String language = translationEntry.getKey();
             String translationValue = translationEntry.getValue().getAsString();
 
-            Map<String, String> translationsForFile = translations.computeIfAbsent(language,
-                    k -> new HashMap<>());
+            Map<String, String> translationsForFile =
+                translations.computeIfAbsent(language, k -> new HashMap<>());
             translationsForFile.put(entry.getKey(), translationValue);
           }
         }
