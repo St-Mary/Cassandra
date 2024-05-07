@@ -14,11 +14,13 @@ public class GameApplicationController implements Initializable {
 
   public Button btn_play;
   public Button btn_settings;
+  public Button btn_leave;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    btn_play.setText(LanguageManager.getString(GameApplication.getLanguage(), "Main.btn_play"));
-    btn_settings.setText(LanguageManager.getString(GameApplication.getLanguage(), "Main.btn_settings"));
+    btn_play.setText(LanguageManager.getString("Main.btn_play"));
+    btn_settings.setText(LanguageManager.getString("Main.btn_settings"));
+    btn_leave.setText(LanguageManager.getString("Main.btn_leave"));
   }
 
   public void handleLeaveBtn() {

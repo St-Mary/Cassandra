@@ -6,5 +6,9 @@
   "Main.btn_settings": {
     "en": "Settings",
     "fr": "Paramètres"
+  },
+  "Main.btn_leave": {
+    "en": "Leave",
+    "fr": "Quitter"
   }
 }

@@ -1,0 +1,42 @@
+{
+  "Settings.server_url": {
+    "fr": "URL du serveur",
+    "en": "Server URL"
+  },
+  "Settings.server_port": {
+      "fr": "Port du serveur",
+      "en": "Server port"
+  },
+  "Settings.username": {
+      "fr": "Nom d'utilisateur",
+      "en": "Username"
+  },
+  "Settings.password": {
+      "fr": "Mot de passe",
+      "en": "Password"
+  },
+  "Settings.btn_save": {
+      "fr": "Sauvegarder",
+      "en": "Save"
+  },
+  "Settings.btn_cancel": {
+      "fr": "Retour",
+      "en": "Cancel"
+  },
+  "Settings.language": {
+      "fr": "Langue",
+      "en": "Language"
+  },
+  "Settings.settings_saved": {
+      "fr": "Paramètres sauvegardés",
+      "en": "Settings saved"
+  },
+  "Settings.settings_failed": {
+      "fr": "Erreur lors de la sauvegarde des paramètres",
+      "en": "Error while saving settings"
+  },
+  "Settings.language_error": {
+      "fr": "Erreur de langue: en/fr",
+      "en": "Language error: en/fr"
+  }
+}

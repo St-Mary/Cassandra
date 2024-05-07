@@ -16,7 +16,7 @@
         <Button fx:id="btn_play" styleClass="pixel-button" onMouseClicked="#handlePlayBtn" />
         <Button fx:id="btn_settings" styleClass="pixel-button" onMouseClicked="#handleSettingsBtn" />
     </VBox>
-    <Button text="Quitter" styleClass="pixel-button-leave" layoutX="10"
+    <Button fx:id="btn_leave" styleClass="pixel-button-leave" layoutX="10"
             layoutY="550"
             onMouseClicked="#handleLeaveBtn" />
 </AnchorPane>
