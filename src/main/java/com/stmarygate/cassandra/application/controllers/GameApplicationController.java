@@ -1,12 +1,10 @@
 package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.LanguageManager;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
-import com.stmarygate.cassandra.application.LanguageManager;
-import com.stmarygate.cassandra.application.database.DatabaseManager;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
@@ -18,7 +16,8 @@ public class GameApplicationController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     btn_play.setText(LanguageManager.getString(GameApplication.getLanguage(), "Main.btn_play"));
-    btn_settings.setText(LanguageManager.getString(GameApplication.getLanguage(), "Main.btn_settings"));
+    btn_settings.setText(
+        LanguageManager.getString(GameApplication.getLanguage(), "Main.btn_settings"));
   }
 
   public void handleLeaveBtn() {

@@ -3,7 +3,6 @@ package com.stmarygate.cassandra.application;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import java.awt.*;
 import java.io.FileNotFoundException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -74,11 +73,7 @@ public class GameApplication extends Application {
       Scene scene = new Scene(root, 1060, 600);
       scene
           .getStylesheets()
-          .add(
-              GameApplication.class
-                  .getClassLoader()
-                  .getResource("css/Main.css")
-                  .toExternalForm());
+          .add(GameApplication.class.getClassLoader().getResource("css/Main.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate");
       primaryStage.show();
@@ -95,11 +90,7 @@ public class GameApplication extends Application {
       Scene scene = new Scene(loader.load(), 1060, 600);
       scene
           .getStylesheets()
-          .add(
-              GameApplication.class
-                  .getClassLoader()
-                  .getResource("css/Main.css")
-                  .toExternalForm());
+          .add(GameApplication.class.getClassLoader().getResource("css/Main.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate - Loading");
       primaryStage.show();
@@ -128,16 +119,13 @@ public class GameApplication extends Application {
     try {
       FXMLLoader loader =
           new FXMLLoader(
-              GameApplication.class.getClassLoader().getResource("fxml" + "/ServerConnectionLost" +
-                      ".fxml"));
+              GameApplication.class
+                  .getClassLoader()
+                  .getResource("fxml" + "/ServerConnectionLost" + ".fxml"));
       Scene scene = new Scene(loader.load(), 1060, 600);
       scene
           .getStylesheets()
-          .add(
-              GameApplication.class
-                  .getClassLoader()
-                  .getResource("css/Main.css")
-                  .toExternalForm());
+          .add(GameApplication.class.getClassLoader().getResource("css/Main.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate - Connection closed");
       primaryStage.show();

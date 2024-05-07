@@ -30,22 +30,25 @@ public class GameController implements Initializable {
     initializeHealth(player);
     initializeExp(player);
 
-    Thread th = new Thread(() -> {
-      while (true) {
-        try {
-          Thread.sleep(1000);
-          if (!Cassandra.isConnected()) {
-            Platform.runLater(GameApplication::showServerConnectionLostPage);
-            break;
-          }
-        } catch (InterruptedException e) {
-          System.out.println("Error while updating player informations : " + e);
-        }
-      }
-    });
+    Thread th =
+        new Thread(
+            () -> {
+              while (true) {
+                try {
+                  Thread.sleep(1000);
+                  if (!Cassandra.isConnected()) {
+                    Platform.runLater(GameApplication::showServerConnectionLostPage);
+                    break;
+                  }
+                } catch (InterruptedException e) {
+                  System.out.println("Error while updating player informations : " + e);
+                }
+              }
+            });
     th.setDaemon(true);
     th.start();
   }
+
   private void initializeExp(Player player) {
     if (player == null) return;
     playerExps.setText(player.getExp() + "/" + player.getExpToNextLevel());
@@ -54,34 +57,28 @@ public class GameController implements Initializable {
     double expPercentage = (double) player.getExp() / player.getExpToNextLevel();
     if (expPercentage == 1) {
       starBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream(
-                              "/img" + "/star_bar/star_bar0" + ".png")));
+          new Image(
+              GameController.class.getResourceAsStream("/img" + "/star_bar/star_bar0" + ".png")));
     } else if (expPercentage >= 0.75) {
       starBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/exp_bar/exp_1" + ".png")));
+          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_1" + ".png")));
     } else if (expPercentage >= 0.5) {
       starBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/exp_bar/exp_2" + ".png")));
+          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_2" + ".png")));
     } else if (expPercentage >= 0.25) {
       starBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/exp_bar/exp_3" + ".png")));
+          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_3" + ".png")));
     } else if (expPercentage >= 0.15) {
       starBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/exp_bar/exp_4" + ".png")));
+          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_4" + ".png")));
     } else {
       starBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/exp_bar/exp_5" + ".png")));
+          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_5" + ".png")));
     }
 
     if (player.getExp() == 0) {
       starBar.setImage(
-              new Image(GameController.class.getResourceAsStream("/img/empty_bar" + ".png")));
+          new Image(GameController.class.getResourceAsStream("/img/empty_bar" + ".png")));
     }
 
     starBar.setFitHeight(20);
@@ -96,34 +93,34 @@ public class GameController implements Initializable {
     double healthPercentage = (double) player.getHealth() / player.getMaxHealth();
     if (healthPercentage == 1) {
       healthBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream(
-                              "/img" + "/health_bar/health_bar0" + ".png")));
+          new Image(
+              GameController.class.getResourceAsStream(
+                  "/img" + "/health_bar/health_bar0" + ".png")));
     } else if (healthPercentage >= 0.75) {
       healthBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar1" + ".png")));
+          new Image(
+              GameController.class.getResourceAsStream("/img/health_bar/health_bar1" + ".png")));
     } else if (healthPercentage >= 0.5) {
       healthBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar2" + ".png")));
+          new Image(
+              GameController.class.getResourceAsStream("/img/health_bar/health_bar2" + ".png")));
     } else if (healthPercentage >= 0.25) {
       healthBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar3" + ".png")));
+          new Image(
+              GameController.class.getResourceAsStream("/img/health_bar/health_bar3" + ".png")));
     } else if (healthPercentage >= 0.15) {
       healthBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar4" + ".png")));
+          new Image(
+              GameController.class.getResourceAsStream("/img/health_bar/health_bar4" + ".png")));
     } else {
       healthBar.setImage(
-              new Image(
-                      GameController.class.getResourceAsStream("/img/health_bar/health_bar5" + ".png")));
+          new Image(
+              GameController.class.getResourceAsStream("/img/health_bar/health_bar5" + ".png")));
     }
 
     if (player.getHealth() == 0) {
       healthBar.setImage(
-              new Image(GameController.class.getResourceAsStream("/img/empty_bar" + ".png")));
+          new Image(GameController.class.getResourceAsStream("/img/empty_bar" + ".png")));
     }
 
     healthBar.setFitHeight(20);
