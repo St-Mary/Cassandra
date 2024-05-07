@@ -8,9 +8,14 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+
+import java.io.FileNotFoundException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
+
+import javafx.application.Platform;
 import lombok.Getter;
+import lombok.Setter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,19 +33,27 @@ public class Cassandra {
 
   private static ChannelFuture future;
   private static Thread clientThread;
+  @Getter @Setter
+  private static boolean mustBeClosed = false;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
     GameApplication.main(args);
   }
 
   /** Reload the Cassandra client. */
-  public static void reload() {
+  public static void reload() throws InterruptedException {
     close();
     String address = DatabaseManager.queryResult("SELECT server_url FROM settings");
     String port = DatabaseManager.queryResult("SELECT server_port FROM settings");
     LOGGER.info("Starting Cassandra client... " + address + ":" + port);
 
-    clientThread = new Thread(() -> start(new InetSocketAddress(address, Integer.parseInt(port))));
+    clientThread = new Thread(() -> {
+      try {
+        start(new InetSocketAddress(address, Integer.parseInt(port)));
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
+    });
     clientThread.setName("CassandraClient");
     clientThread.start();
   }
@@ -50,7 +63,7 @@ public class Cassandra {
    *
    * @param address The address of the Luna server to connect to.
    */
-  public static void start(SocketAddress address) {
+  public static void start(SocketAddress address) throws InterruptedException {
     workerGroup = new NioEventLoopGroup();
     baseChannel = new CassandraChannel(CassandraLoginPacketHandler.class);
     baseInitializer = new CassandraInitializer(baseChannel);
@@ -84,7 +97,7 @@ public class Cassandra {
   }
 
   /** Close the connection to the Luna server. */
-  public static void close() {
+  public static void close() throws InterruptedException {
     if (future != null) {
       try {
         future.channel().close().sync();
@@ -95,7 +108,15 @@ public class Cassandra {
 
     LOGGER.info("Closing connection to Luna server...");
     workerGroup.shutdownGracefully();
+    future = null;
+    if (clientThread != null) clientThread.interrupt();
     LOGGER.info("Connection to Luna server closed");
+
+    if (!GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate - Loading") && !GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate")) {
+      Platform.runLater(GameApplication::showServerConnectionLostPage);
+    }
+
+    mustBeClosed = false;
   }
 
   /**

@@ -1,0 +1,10 @@
+{
+  "Main.btn_play": {
+    "en": "Play",
+    "fr": "Jouer"
+  },
+  "Main.btn_settings": {
+    "en": "Settings",
+    "fr": "Paramètres"
+  }
+}

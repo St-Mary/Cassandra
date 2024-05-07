@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Bump version due to vulnerabilities">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/game_bg/game_bg1.jpeg" afterDir="false" />
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Improve menu ui">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/LanguageManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/ServerConnectionLostController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/ServerConnectionLost.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/translations/Main.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Cassandra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Cassandra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/GameApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/GameApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameApplicationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameApplicationController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/database/DatabaseManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/database/DatabaseManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/profile_board.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/profile_board.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/star.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/star.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/LoadingGame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/LoadingGame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Main.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +53,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -142,7 +151,8 @@
       <workItem from="1714686873420" duration="632000" />
       <workItem from="1714687597366" duration="643000" />
       <workItem from="1714857465695" duration="25015000" />
-      <workItem from="1714981060393" duration="4954000" />
+      <workItem from="1714981060393" duration="6797000" />
+      <workItem from="1715016274015" duration="12947000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -200,7 +210,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714983661026</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Improve menu ui">
+      <option name="closed" value="true" />
+      <created>1715004974532</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715004974532</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +233,8 @@
     <MESSAGE value="First gui" />
     <MESSAGE value="Add exp bar" />
     <MESSAGE value="Bump version due to vulnerabilities" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bump version due to vulnerabilities" />
+    <MESSAGE value="Improve menu ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve menu ui" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cassandra$Cassandra.ic" NAME="Cassandra Coverage Results" MODIFIED="1714602875388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -11,14 +11,20 @@ import com.stmarygate.coral.network.packets.client.PacketGetPlayerInformations;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.input.MouseEvent;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GameLoadingGameController {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(GameLoadingGameController.class);
   public ProgressBar progressBar;
   public Label loadingStatus;
+  public Button cancelButton;
 
   public void initialize() {
     startLoadingTask();
@@ -29,7 +35,6 @@ public class GameLoadingGameController {
     progressBar.progressProperty().bind(task.progressProperty());
     loadingStatus.textProperty().bind(task.messageProperty());
 
-    task.setOnSucceeded(event -> Platform.runLater(GameApplication::showGamePage));
     task.setOnFailed(event -> progressBar.setVisible(false));
 
     Thread th = new Thread(task);
@@ -37,11 +42,21 @@ public class GameLoadingGameController {
     th.start();
   }
 
+  public void cancelLoading(MouseEvent mouseEvent) {
+    try {
+      Cassandra.setMustBeClosed(true);
+      Platform.runLater(GameApplication::showMainPage);
+    } catch (RuntimeException e) {
+      System.out.println("Error while closing connection : " + e);
+    }
+  }
+
   private static class LoadingTask extends Task<Void> {
 
     @Override
     protected Void call() throws Exception {
       connectToServer();
+      this.failed();
       return null;
     }
 
@@ -56,6 +71,7 @@ public class GameLoadingGameController {
         Thread.sleep(100);
         if (System.currentTimeMillis() - startTime > Constants.getMaxTimeOutConnection) {
           updateMessage("Connection timed out.");
+          updateProgress(0, 1);
           break;
         }
       }
@@ -83,7 +99,7 @@ public class GameLoadingGameController {
       while (Cassandra.getBaseChannel().getPacketLoginResult() == null) {
         Thread.sleep(100);
         if (System.currentTimeMillis() - startTime > 15000) {
-          updateMessage("Login timed out, trying again..");
+          updateMessage("Login timed out, trying again.");
           Thread.sleep(1000);
           loginToServer();
           break;
@@ -102,8 +118,10 @@ public class GameLoadingGameController {
       }
     }
 
-    private void getUserInformation() {
+    private void getUserInformation() throws InterruptedException {
+      LOGGER.info("Getting user information...");
       updateMessage("Getting user information...");
+
       updateProgress(0.7, 1);
 
       long startTime = System.currentTimeMillis();
@@ -111,6 +129,7 @@ public class GameLoadingGameController {
       try {
         Cassandra.getBaseChannel()
             .sendPacket(new PacketGetPlayerInformations(PlayerCache.getAccount().getId()));
+        LOGGER.info("Sent packet to get player informations");
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -128,10 +147,20 @@ public class GameLoadingGameController {
       }
 
       if (Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult() != null) {
-        PlayerCache.setPlayer(Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult().getPlayer());
+        PlayerCache.setPlayer(
+            Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult().getPlayer());
         updateMessage("Done!");
         updateProgress(1, 1);
         Utils.wait(1000);
+
+        if (Cassandra.isMustBeClosed()) {
+          Cassandra.close();
+          return;
+        }
+
+        if (Cassandra.isConnected() && PlayerCache.getPlayer() != null) {
+          Platform.runLater(GameApplication::showGamePage);
+        }
       }
     }
   }

@@ -1,8 +1,9 @@
 package com.stmarygate.cassandra.application;
 
-import com.stmarygate.cassandra.application.controllers.GameLoadingGameController;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import java.awt.*;
+import java.io.FileNotFoundException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,12 +12,17 @@ import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import lombok.Getter;
+import lombok.Setter;
 
 public class GameApplication extends Application {
 
   @Getter private static Stage primaryStage;
+  @Getter @Setter private static String language;
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws FileNotFoundException {
+    LanguageManager.loadLanguages();
+    DatabaseManager.initialize();
+    language = DatabaseManager.getLanguage();
     launch(args);
   }
 
@@ -71,7 +77,7 @@ public class GameApplication extends Application {
           .add(
               GameApplication.class
                   .getClassLoader()
-                  .getResource("css/Main" + ".css")
+                  .getResource("css/Main.css")
                   .toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate");
@@ -86,14 +92,13 @@ public class GameApplication extends Application {
       FXMLLoader loader =
           new FXMLLoader(
               GameApplication.class.getClassLoader().getResource("fxml" + "/LoadingGame.fxml"));
-      loader.setController(new GameLoadingGameController());
       Scene scene = new Scene(loader.load(), 1060, 600);
       scene
           .getStylesheets()
           .add(
               GameApplication.class
                   .getClassLoader()
-                  .getResource("css/Main" + ".css")
+                  .getResource("css/Main.css")
                   .toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate - Loading");
@@ -119,10 +124,31 @@ public class GameApplication extends Application {
     }
   }
 
+  public static void showServerConnectionLostPage() {
+    try {
+      FXMLLoader loader =
+          new FXMLLoader(
+              GameApplication.class.getClassLoader().getResource("fxml" + "/ServerConnectionLost" +
+                      ".fxml"));
+      Scene scene = new Scene(loader.load(), 1060, 600);
+      scene
+          .getStylesheets()
+          .add(
+              GameApplication.class
+                  .getClassLoader()
+                  .getResource("css/Main.css")
+                  .toExternalForm());
+      primaryStage.setScene(scene);
+      primaryStage.setTitle("Saint Mary's Gate - Connection closed");
+      primaryStage.show();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
   @Override
   public void start(Stage stage) throws Exception {
     primaryStage = stage;
-    DatabaseManager.initialize();
 
     primaryStage.setOnCloseRequest(event -> System.exit(0));
     primaryStage.setResizable(false);

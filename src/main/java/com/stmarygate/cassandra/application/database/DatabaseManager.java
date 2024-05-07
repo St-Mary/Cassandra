@@ -72,4 +72,11 @@ public class DatabaseManager {
       return null;
     }
   }
+
+  /**
+   * Get language from settings.
+   */
+  public static String getLanguage() {
+    return queryResult("SELECT language FROM settings");
+  }
 }

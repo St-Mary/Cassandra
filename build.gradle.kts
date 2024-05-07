@@ -59,6 +59,8 @@ dependencies {
     implementation("org.openjfx:javafx-fxml:23-ea+3")
     implementation("org.openjfx:javafx-controls:23-ea+3")
 
+    implementation("com.google.code.gson:gson:2.10.1")
+
     // SQLite database HikariCP and Hibernate
     implementation("org.xerial:sqlite-jdbc:3.45.3.0")
     implementation("org.hibernate.orm:hibernate-core:6.4.1.Final")

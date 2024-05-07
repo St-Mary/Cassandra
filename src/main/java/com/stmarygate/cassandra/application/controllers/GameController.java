@@ -1,9 +1,12 @@
 package com.stmarygate.cassandra.application.controllers;
 
+import com.stmarygate.cassandra.Cassandra;
+import com.stmarygate.cassandra.application.GameApplication;
 import com.stmarygate.cassandra.cache.PlayerCache;
 import com.stmarygate.coral.entities.Player;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -21,12 +24,30 @@ public class GameController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     Player player = PlayerCache.getPlayer();
-    playerName.setText(player.getUsername());
+
+    playerName.setText(player != null ? player.getUsername() : "");
 
     initializeHealth(player);
     initializeExp(player);
+
+    Thread th = new Thread(() -> {
+      while (true) {
+        try {
+          Thread.sleep(1000);
+          if (!Cassandra.isConnected()) {
+            Platform.runLater(GameApplication::showServerConnectionLostPage);
+            break;
+          }
+        } catch (InterruptedException e) {
+          System.out.println("Error while updating player informations : " + e);
+        }
+      }
+    });
+    th.setDaemon(true);
+    th.start();
   }
   private void initializeExp(Player player) {
+    if (player == null) return;
     playerExps.setText(player.getExp() + "/" + player.getExpToNextLevel());
     starImage.setImage(new Image(GameController.class.getResourceAsStream("/img/star.png")));
     // Set the player's image based on the player's level
@@ -68,6 +89,7 @@ public class GameController implements Initializable {
   }
 
   private void initializeHealth(Player player) {
+    if (player == null) return;
     playerLives.setText(player.getHealth() + "/" + player.getMaxHealth());
     heartImage.setImage(new Image(GameController.class.getResourceAsStream("/img/heart.png")));
     // Set the player's image based on the player's level

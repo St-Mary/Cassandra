@@ -19,7 +19,7 @@
     <Pane layoutY="20" layoutX="20" prefWidth="450" prefHeight="450"
           styleClass="vboxPlayer">
         <Label fx:id="playerName" styleClass="playerLabelTitle" alignment="CENTER" textAlignment="CENTER"
-               layoutY="30" prefWidth="437"/>
+               layoutY="35" prefWidth="437"/>
 
         <VBox prefWidth="417" layoutY="120" layoutX="40" spacing="5">
             <HBox alignment="BASELINE_LEFT" spacing="5">
