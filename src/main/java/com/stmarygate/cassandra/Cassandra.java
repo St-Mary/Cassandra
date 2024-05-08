@@ -8,11 +8,9 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
-
 import javafx.application.Platform;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,7 +34,7 @@ public class Cassandra {
   @Getter @Setter
   private static boolean mustBeClosed = false;
 
-  public static void main(String[] args) throws FileNotFoundException {
+  public static void main(String[] args) throws IOException {
     GameApplication.main(args);
   }
 

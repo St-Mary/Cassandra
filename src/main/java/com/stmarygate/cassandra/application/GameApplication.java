@@ -2,8 +2,7 @@ package com.stmarygate.cassandra.application;
 
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import java.awt.*;
-import java.io.FileNotFoundException;
-
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +18,7 @@ public class GameApplication extends Application {
   @Getter private static Stage primaryStage;
   @Getter @Setter private static String language;
 
-  public static void main(String[] args) throws FileNotFoundException {
+  public static void main(String[] args) throws IOException {
     LanguageManager.loadLanguages();
     DatabaseManager.initialize();
     language = DatabaseManager.getLanguage();

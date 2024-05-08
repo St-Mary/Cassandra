@@ -100,6 +100,7 @@ tasks.shadowJar {
     archiveVersion.set("")
     manifest {
         attributes["Main-Class"] = "com.stmarygate.cassandra.Cassandra"
+        attributes["Class-Path"] = "translations/"
     }
     mustRunAfter("distTar", "distZip", "startScripts")
 }
