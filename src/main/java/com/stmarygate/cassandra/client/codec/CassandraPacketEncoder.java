@@ -1,4 +1,4 @@
-package com.stmarygate.cassandra.codec;
+package com.stmarygate.cassandra.client.codec;
 
 import com.stmarygate.coral.network.codec.PacketEncoder;
 import com.stmarygate.coral.network.packets.Packet;

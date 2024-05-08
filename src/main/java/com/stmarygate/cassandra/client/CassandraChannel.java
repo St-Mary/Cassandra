@@ -1,4 +1,4 @@
-package com.stmarygate.cassandra;
+package com.stmarygate.cassandra.client;
 
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.packets.PacketHandler;

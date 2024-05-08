@@ -1,8 +1,8 @@
-package com.stmarygate.cassandra;
+package com.stmarygate.cassandra.client;
 
 import com.stmarygate.cassandra.application.GameApplication;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
-import com.stmarygate.cassandra.handlers.CassandraLoginPacketHandler;
+import com.stmarygate.cassandra.client.handlers.CassandraLoginPacketHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.EventLoopGroup;
@@ -74,12 +74,11 @@ public class Cassandra {
       LOGGER.info("Connecting to Luna at " + address);
       future = b.connect(address).sync();
 
-      // Send a message to FX thread to update the progress bar
-
       LOGGER.info("Time start: " + (System.currentTimeMillis() - time) + "ms");
       future.channel().closeFuture().sync();
     } catch (Exception e) {
       LOGGER.error("Failed to start Cassandra");
+
     } finally {
       close();
     }

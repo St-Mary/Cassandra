@@ -1,6 +1,7 @@
-package com.stmarygate.cassandra;
+package com.stmarygate.cassandra.client;
 
-import com.stmarygate.cassandra.codec.CassandraPacketEncoder;
+import com.stmarygate.cassandra.Constants;
+import com.stmarygate.cassandra.client.codec.CassandraPacketEncoder;
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.BaseInitializer;
 import com.stmarygate.coral.network.codec.PacketDecoder;

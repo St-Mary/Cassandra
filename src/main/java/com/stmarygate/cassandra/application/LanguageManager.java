@@ -3,7 +3,7 @@ package com.stmarygate.cassandra.application;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.stmarygate.cassandra.Cassandra;
+import com.stmarygate.cassandra.client.Cassandra;
 import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;

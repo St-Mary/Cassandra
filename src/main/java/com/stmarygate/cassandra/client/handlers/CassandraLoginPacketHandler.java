@@ -1,6 +1,6 @@
-package com.stmarygate.cassandra.handlers;
+package com.stmarygate.cassandra.client.handlers;
 
-import com.stmarygate.cassandra.Cassandra;
+import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.cassandra.cache.PlayerCache;
 import com.stmarygate.coral.entities.Account;
 import com.stmarygate.coral.network.BaseChannel;

@@ -37,7 +37,7 @@ repositories {
 }
 
 // Required by the 'shadowJar' task
-project.setProperty("mainClassName", "com.stmarygate.cassandra.Cassandra")
+project.setProperty("mainClassName", "com.stmarygate.cassandra.client.Cassandra")
 
 dependencies {
     compileOnly("org.projectlombok:lombok:1.18.22")
@@ -83,7 +83,7 @@ tasks.jar {
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     manifest {
-        attributes["Main-Class"] = "com.stmarygate.cassandra.Cassandra"
+        attributes["Main-Class"] = "com.stmarygate.cassandra.client.Cassandra"
     }
 
     configurations["compileClasspath"].forEach { file: File ->
@@ -99,7 +99,7 @@ tasks.shadowJar {
     archiveClassifier.set("")
     archiveVersion.set("")
     manifest {
-        attributes["Main-Class"] = "com.stmarygate.cassandra.Cassandra"
+        attributes["Main-Class"] = "com.stmarygate.cassandra.client.Cassandra"
         attributes["Class-Path"] = "translations/"
     }
     mustRunAfter("distTar", "distZip", "startScripts")
