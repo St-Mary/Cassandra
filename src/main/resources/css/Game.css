@@ -22,3 +22,10 @@
     -fx-font-size: 12px;
     -fx-text-fill: #000000;
 }
+
+.playerLevel {
+    -fx-font-family: "Pixel Operator 8";
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #000000;
+}

@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Make language manager works in Jar execution">
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Some refactoring">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/level.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/translations/GameMenu.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/Cassandra.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/Cassandra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraChannel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/CassandraChannel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/CassandraInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/CassandraInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/LanguageManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/LanguageManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameLoadingGameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/codec/CassandraPacketEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/codec/CassandraPacketEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/handlers/CassandraGamePacketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/handlers/CassandraGamePacketHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/handlers/CassandraLoginPacketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/handlers/CassandraLoginPacketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Game.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +266,7 @@
       <workItem from="1714981060393" duration="6797000" />
       <workItem from="1715016274015" duration="16672000" />
       <workItem from="1715116484469" duration="4277000" />
-      <workItem from="1715156546065" duration="4462000" />
+      <workItem from="1715156546065" duration="7166000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -361,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715159836359</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Some refactoring">
+      <option name="closed" value="true" />
+      <created>1715161697746</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715161697746</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +383,8 @@
     <MESSAGE value="Fix bugs and add language manager" />
     <MESSAGE value="Improve language manager and move Settings page to language manager" />
     <MESSAGE value="Make language manager works in Jar execution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make language manager works in Jar execution" />
+    <MESSAGE value="Some refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Some refactoring" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cassandra$Cassandra.ic" NAME="Cassandra Coverage Results" MODIFIED="1714602875388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

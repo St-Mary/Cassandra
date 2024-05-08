@@ -21,19 +21,26 @@
         <Label fx:id="playerName" styleClass="playerLabelTitle" alignment="CENTER" textAlignment="CENTER"
                layoutY="35" prefWidth="437"/>
 
-        <VBox prefWidth="417" layoutY="120" layoutX="40" spacing="5">
-            <HBox alignment="BASELINE_LEFT" spacing="5">
-                <HBox alignment="CENTER" spacing="5">
-                    <ImageView fx:id="heartImage" fitHeight="25" fitWidth="25"/>
-                    <ImageView fx:id="healthBar"/>
-                    <Label fx:id="playerLives" alignment="BASELINE_LEFT" styleClass="playerLabelValue"/>
-                </HBox>
-            </HBox>
+        <HBox alignment="CENTER" layoutX="20" layoutY="120" spacing="5" prefWidth="417" >
+            <ImageView fx:id="levelImage" fitHeight="30" fitWidth="30"/>
+            <Label fx:id="level" styleClass="playerLevel"/>
+            <ImageView fx:id="levelImageTwo" fitHeight="30" fitWidth="30"/>
+        </HBox>
+
+        <VBox prefWidth="417" layoutY="160" layoutX="40" spacing="5">
+
             <HBox alignment="BASELINE_LEFT" spacing="5">
                 <HBox alignment="CENTER" spacing="5">
                     <ImageView fx:id="starImage" fitHeight="25" fitWidth="25"/>
                     <ImageView fx:id="starBar"/>
                     <Label fx:id="playerExps" alignment="TOP_LEFT" styleClass="playerLabelValue"/>
+                </HBox>
+            </HBox>
+            <HBox alignment="BASELINE_LEFT" spacing="5">
+                <HBox alignment="CENTER" spacing="5">
+                    <ImageView fx:id="heartImage" fitHeight="25" fitWidth="25"/>
+                    <ImageView fx:id="healthBar"/>
+                    <Label fx:id="playerLives" alignment="BASELINE_LEFT" styleClass="playerLabelValue"/>
                 </HBox>
             </HBox>
         </VBox>

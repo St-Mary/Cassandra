@@ -1,5 +1,6 @@
 package com.stmarygate.cassandra.application.controllers;
 
+import com.stmarygate.cassandra.application.LanguageManager;
 import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.cassandra.application.GameApplication;
 import com.stmarygate.cassandra.cache.PlayerCache;
@@ -20,6 +21,9 @@ public class GameController implements Initializable {
   public ImageView healthBar;
   public ImageView starImage;
   public ImageView starBar;
+  public ImageView levelImage;
+  public Label level;
+  public ImageView levelImageTwo;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -27,6 +31,7 @@ public class GameController implements Initializable {
 
     playerName.setText(player != null ? player.getUsername() : "");
 
+    initializeLevel(player);
     initializeHealth(player);
     initializeExp(player);
 
@@ -47,6 +52,13 @@ public class GameController implements Initializable {
             });
     th.setDaemon(true);
     th.start();
+  }
+
+  private void initializeLevel(Player player) {
+    if (player == null) return;
+    level.setText(LanguageManager.getString("GameMenu.level") + player.getLevel());
+    levelImage.setImage(new Image(GameController.class.getResourceAsStream("/img/level.png")));
+    levelImageTwo.setImage(new Image(GameController.class.getResourceAsStream("/img/level.png")));
   }
 
   private void initializeExp(Player player) {
