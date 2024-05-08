@@ -19,16 +19,16 @@ public class LanguageManager {
   private static final Map<String, Map<String, String>> translations = new HashMap<>();
 
   public static void loadLanguages() throws IOException {
-    File directory = new File(Cassandra.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
+    File directory =
+        new File(Cassandra.class.getClassLoader().getResource(LANGUAGES_DIRECTORY).getFile());
 
     if (!directory.exists()) {
       CodeSource src = LanguageManager.class.getProtectionDomain().getCodeSource();
       URL jar = src.getLocation();
       ZipInputStream zip = new ZipInputStream(jar.openStream());
-      while(true) {
+      while (true) {
         ZipEntry e = zip.getNextEntry();
-        if (e == null)
-          break;
+        if (e == null) break;
         String name = e.getName();
         if (name.startsWith("translations/") && name.endsWith(".json")) {
           try (InputStream stream =

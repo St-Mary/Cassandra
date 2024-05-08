@@ -1,8 +1,8 @@
 package com.stmarygate.cassandra.application.controllers;
 
-import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.cassandra.application.GameApplication;
 import com.stmarygate.cassandra.cache.PlayerCache;
+import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.coral.entities.Player;
 import java.net.URL;
 import java.util.ResourceBundle;
