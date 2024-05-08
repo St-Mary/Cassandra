@@ -31,8 +31,7 @@ public class Cassandra {
 
   private static ChannelFuture future;
   private static Thread clientThread;
-  @Getter @Setter
-  private static boolean mustBeClosed = false;
+  @Getter @Setter private static boolean mustBeClosed = false;
 
   public static void main(String[] args) throws IOException {
     GameApplication.main(args);
@@ -45,13 +44,15 @@ public class Cassandra {
     String port = DatabaseManager.queryResult("SELECT server_port FROM settings");
     LOGGER.info("Starting Cassandra client... " + address + ":" + port);
 
-    clientThread = new Thread(() -> {
-      try {
-        start(new InetSocketAddress(address, Integer.parseInt(port)));
-      } catch (InterruptedException e) {
-        throw new RuntimeException(e);
-      }
-    });
+    clientThread =
+        new Thread(
+            () -> {
+              try {
+                start(new InetSocketAddress(address, Integer.parseInt(port)));
+              } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+              }
+            });
     clientThread.setName("CassandraClient");
     clientThread.start();
   }
@@ -110,7 +111,8 @@ public class Cassandra {
     if (clientThread != null) clientThread.interrupt();
     LOGGER.info("Connection to Luna server closed");
 
-    if (!GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate - Loading") && !GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate")) {
+    if (!GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate - Loading")
+        && !GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate")) {
       Platform.runLater(GameApplication::showServerConnectionLostPage);
     }
 
