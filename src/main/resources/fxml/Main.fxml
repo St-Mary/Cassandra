@@ -5,7 +5,7 @@
 
 <?import java.net.URL?>
 <AnchorPane styleClass="box" prefWidth="1060" prefHeight="600"
-            fx:controller="com.stmarygate.cassandra.application.controllers.GameApplicationController" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
+            fx:controller="com.stmarygate.cassandra.application.controllers.ApplicationController" xmlns="http://javafx.com/javafx/11" xmlns:fx="http://javafx.com/fxml/1">
     <stylesheets>
         <URL value="@../css/Main.css" />
     </stylesheets>

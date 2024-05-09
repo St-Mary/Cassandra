@@ -1,6 +1,6 @@
 package com.stmarygate.cassandra.application.controllers;
 
-import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.Application;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
@@ -13,7 +13,7 @@ public class ServerConnectionLostController implements Initializable {
   public Button cancelButton;
 
   public void cancelLoading(MouseEvent mouseEvent) {
-    GameApplication.showMainPage();
+    Application.showMainPage();
   }
 
   @Override

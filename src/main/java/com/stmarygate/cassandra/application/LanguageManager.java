@@ -68,7 +68,7 @@ public class LanguageManager {
   }
 
   public static String getString(String key) {
-    String language = GameApplication.getLanguage();
+    String language = Application.getLanguage();
     Map<String, String> translationsForFile = translations.get(language);
     if (translationsForFile == null) {
       return key;

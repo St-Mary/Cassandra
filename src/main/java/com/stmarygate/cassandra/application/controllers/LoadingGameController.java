@@ -3,7 +3,7 @@ package com.stmarygate.cassandra.application.controllers;
 import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.cassandra.Constants;
 import com.stmarygate.cassandra.Utils;
-import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import com.stmarygate.cassandra.cache.PlayerCache;
 import com.stmarygate.cassandra.client.handlers.CassandraGamePacketHandler;
@@ -19,9 +19,9 @@ import javafx.scene.input.MouseEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class GameLoadingGameController {
+public class LoadingGameController {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(GameLoadingGameController.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(LoadingGameController.class);
   public ProgressBar progressBar;
   public Label loadingStatus;
   public Button cancelButton;
@@ -45,7 +45,7 @@ public class GameLoadingGameController {
   public void cancelLoading(MouseEvent mouseEvent) {
     try {
       Cassandra.setMustBeClosed(true);
-      Platform.runLater(GameApplication::showMainPage);
+      Platform.runLater(Application::showMainPage);
     } catch (RuntimeException e) {
       System.out.println("Error while closing connection : " + e);
     }
@@ -159,7 +159,7 @@ public class GameLoadingGameController {
         }
 
         if (Cassandra.isConnected() && PlayerCache.getPlayer() != null) {
-          Platform.runLater(GameApplication::showGamePage);
+          Platform.runLater(Application::showGamePage);
         }
       }
     }

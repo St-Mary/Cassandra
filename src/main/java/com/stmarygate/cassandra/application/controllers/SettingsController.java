@@ -1,6 +1,6 @@
 package com.stmarygate.cassandra.application.controllers;
 
-import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.application.LanguageManager;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class GameSettingsController implements Initializable {
+public class SettingsController implements Initializable {
   public TextField serverUrl;
   public TextField serverPort;
   public TextField username;
@@ -50,8 +50,8 @@ public class GameSettingsController implements Initializable {
   }
 
   public void handleSettingsBtn() throws IOException {
-    GameApplication.showSettingsPage();
-    GameApplication.getPrimaryStage().show();
+    Application.showSettingsPage();
+    Application.getPrimaryStage().show();
   }
 
   public void handleSaveBtn(MouseEvent mouseEvent) {
@@ -67,7 +67,7 @@ public class GameSettingsController implements Initializable {
       DatabaseManager.query("UPDATE settings SET username = '" + username.getText() + "'");
       DatabaseManager.query("UPDATE settings SET password = '" + password.getText() + "'");
       DatabaseManager.query("UPDATE settings SET language = '" + language.getText() + "'");
-      GameApplication.setLanguage(language.getText());
+      Application.setLanguage(language.getText());
       savedLabel.setText(LanguageManager.getString("Settings.settings_saved"));
       savedLabel.setStyle("-fx-text-fill: green;");
       savedLabel.setVisible(true);
@@ -79,7 +79,7 @@ public class GameSettingsController implements Initializable {
   }
 
   public void handleCancelBtn(MouseEvent mouseEvent) {
-    GameApplication.showMainPage();
-    GameApplication.getPrimaryStage().show();
+    Application.showMainPage();
+    Application.getPrimaryStage().show();
   }
 }

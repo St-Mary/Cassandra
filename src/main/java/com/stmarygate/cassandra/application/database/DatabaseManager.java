@@ -25,6 +25,14 @@ public class DatabaseManager {
     }
   }
 
+  public static void close() {
+    try {
+      c.close();
+    } catch (Exception e) {
+      LOGGER.error("Failed to close database connection", e);
+    }
+  }
+
   /** Initialize all tables. */
   public static void initializeTables() {
     query(

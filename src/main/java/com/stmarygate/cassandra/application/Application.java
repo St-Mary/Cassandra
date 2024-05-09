@@ -3,7 +3,8 @@ package com.stmarygate.cassandra.application;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import java.awt.*;
 import java.io.IOException;
-import javafx.application.Application;
+
+import com.stmarygate.cassandra.client.Cassandra;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,7 +14,7 @@ import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
 
-public class GameApplication extends Application {
+public class Application extends javafx.application.Application {
 
   @Getter private static Stage primaryStage;
   @Getter @Setter private static String language;
@@ -27,19 +28,19 @@ public class GameApplication extends Application {
 
   public static void loadFonts() {
     Font.loadFont(
-        GameApplication.class
+        Application.class
             .getClassLoader()
             .getResource("fonts/retrogaming.ttf")
             .toExternalForm(),
         30);
     Font.loadFont(
-        GameApplication.class
+        Application.class
             .getClassLoader()
             .getResource("fonts/PixelOperator8.ttf")
             .toExternalForm(),
         40);
     Font.loadFont(
-        GameApplication.class
+        Application.class
             .getClassLoader()
             .getResource("fonts/PixelOperator8-Bold.ttf")
             .toExternalForm(),
@@ -49,12 +50,12 @@ public class GameApplication extends Application {
   public static void showSettingsPage() {
     try {
       Parent root =
-          FXMLLoader.load(GameApplication.class.getClassLoader().getResource("fxml/Settings.fxml"));
+          FXMLLoader.load(Application.class.getClassLoader().getResource("fxml/Settings.fxml"));
       Scene scene = new Scene(root, 1060, 600);
       scene
           .getStylesheets()
           .add(
-              GameApplication.class
+              Application.class
                   .getClassLoader()
                   .getResource("css/Main" + ".css")
                   .toExternalForm());
@@ -69,12 +70,12 @@ public class GameApplication extends Application {
   public static void showGamePage() {
     try {
       Parent root =
-          FXMLLoader.load(GameApplication.class.getClassLoader().getResource("fxml/Game.fxml"));
+          FXMLLoader.load(Application.class.getClassLoader().getResource("fxml/Game.fxml"));
       Scene scene = new Scene(root, 1060, 600);
       scene
           .getStylesheets()
           .add(
-              GameApplication.class
+              Application.class
                   .getClassLoader()
                   .getResource("css/Main.css")
                   .toExternalForm());
@@ -90,12 +91,12 @@ public class GameApplication extends Application {
     try {
       FXMLLoader loader =
           new FXMLLoader(
-              GameApplication.class.getClassLoader().getResource("fxml" + "/LoadingGame.fxml"));
+              Application.class.getClassLoader().getResource("fxml" + "/LoadingGame.fxml"));
       Scene scene = new Scene(loader.load(), 1060, 600);
       scene
           .getStylesheets()
           .add(
-              GameApplication.class
+              Application.class
                   .getClassLoader()
                   .getResource("css/Main.css")
                   .toExternalForm());
@@ -110,11 +111,11 @@ public class GameApplication extends Application {
   public static void showMainPage() {
     try {
       Parent root =
-          FXMLLoader.load(GameApplication.class.getClassLoader().getResource("fxml/Main.fxml"));
+          FXMLLoader.load(Application.class.getClassLoader().getResource("fxml/Main.fxml"));
       Scene scene = new Scene(root, 1060, 600);
       scene
           .getStylesheets()
-          .add(GameApplication.class.getClassLoader().getResource("css/Main.css").toExternalForm());
+          .add(Application.class.getClassLoader().getResource("css/Main.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate");
       primaryStage.show();
@@ -127,13 +128,13 @@ public class GameApplication extends Application {
     try {
       FXMLLoader loader =
           new FXMLLoader(
-              GameApplication.class.getClassLoader().getResource("fxml" + "/ServerConnectionLost" +
+              Application.class.getClassLoader().getResource("fxml" + "/ServerConnectionLost" +
                       ".fxml"));
       Scene scene = new Scene(loader.load(), 1060, 600);
       scene
           .getStylesheets()
           .add(
-              GameApplication.class
+              Application.class
                   .getClassLoader()
                   .getResource("css/Main.css")
                   .toExternalForm());
@@ -155,7 +156,7 @@ public class GameApplication extends Application {
         .getIcons()
         .add(
             new Image(
-                GameApplication.class.getClassLoader().getResource("img/icon.png").toString()));
+                Application.class.getClassLoader().getResource("img/icon.png").toString()));
 
     loadFonts();
     showMainPage();
@@ -165,10 +166,22 @@ public class GameApplication extends Application {
       if (taskbar.isSupported(Taskbar.Feature.ICON_IMAGE)) {
         Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
         java.awt.Image dockIcon =
-            defaultToolkit.getImage(GameApplication.class.getResource("/img/icon.png"));
+            defaultToolkit.getImage(Application.class.getResource("/img/icon.png"));
         taskbar.setIconImage(dockIcon);
       }
     }
+
+    primaryStage.setOnCloseRequest(event -> {
+      DatabaseManager.close();
+      if (Cassandra.isConnected()) {
+        try {
+          Cassandra.close();
+        } catch (InterruptedException e) {
+          throw new RuntimeException(e);
+        }
+      }
+      System.exit(0);
+    });
 
     primaryStage.show();
   }

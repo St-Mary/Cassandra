@@ -2,7 +2,7 @@ package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.application.LanguageManager;
 import com.stmarygate.cassandra.client.Cassandra;
-import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.cache.PlayerCache;
 import com.stmarygate.coral.entities.Player;
 import java.net.URL;
@@ -42,7 +42,7 @@ public class GameController implements Initializable {
                 try {
                   Thread.sleep(1000);
                   if (!Cassandra.isConnected()) {
-                    Platform.runLater(GameApplication::showServerConnectionLostPage);
+                    Platform.runLater(Application::showServerConnectionLostPage);
                     break;
                   }
                 } catch (InterruptedException e) {

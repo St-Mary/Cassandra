@@ -1,6 +1,6 @@
 package com.stmarygate.cassandra.application.controllers;
 
-import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.application.LanguageManager;
 import java.io.IOException;
 import java.net.URL;
@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 
-public class GameApplicationController implements Initializable {
+public class ApplicationController implements Initializable {
 
   public Button btn_play;
   public Button btn_settings;
@@ -26,11 +26,11 @@ public class GameApplicationController implements Initializable {
   }
 
   public void handlePlayBtn() throws IOException {
-    GameApplication.showLoadingPage();
+    Application.showLoadingPage();
   }
 
   public void handleSettingsBtn() throws IOException {
-    GameApplication.showSettingsPage();
-    GameApplication.getPrimaryStage().show();
+    Application.showSettingsPage();
+    Application.getPrimaryStage().show();
   }
 }

@@ -1,6 +1,6 @@
 package com.stmarygate.cassandra.client;
 
-import com.stmarygate.cassandra.application.GameApplication;
+import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import com.stmarygate.cassandra.client.handlers.CassandraLoginPacketHandler;
 import io.netty.bootstrap.Bootstrap;
@@ -35,7 +35,7 @@ public class Cassandra {
   private static boolean mustBeClosed = false;
 
   public static void main(String[] args) throws IOException {
-    GameApplication.main(args);
+    Application.main(args);
   }
 
   /** Reload the Cassandra client. */
@@ -109,8 +109,8 @@ public class Cassandra {
     if (clientThread != null) clientThread.interrupt();
     LOGGER.info("Connection to Luna server closed");
 
-    if (!GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate - Loading") && !GameApplication.getPrimaryStage().getTitle().equals("Saint Mary's Gate")) {
-      Platform.runLater(GameApplication::showServerConnectionLostPage);
+    if (!Application.getPrimaryStage().getTitle().equals("Saint Mary's Gate - Loading") && !Application.getPrimaryStage().getTitle().equals("Saint Mary's Gate")) {
+      Platform.runLater(Application::showServerConnectionLostPage);
     }
 
     mustBeClosed = false;
