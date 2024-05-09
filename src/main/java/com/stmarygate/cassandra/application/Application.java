@@ -1,10 +1,9 @@
 package com.stmarygate.cassandra.application;
 
 import com.stmarygate.cassandra.application.database.DatabaseManager;
+import com.stmarygate.cassandra.client.Cassandra;
 import java.awt.*;
 import java.io.IOException;
-
-import com.stmarygate.cassandra.client.Cassandra;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -28,16 +27,10 @@ public class Application extends javafx.application.Application {
 
   public static void loadFonts() {
     Font.loadFont(
-        Application.class
-            .getClassLoader()
-            .getResource("fonts/retrogaming.ttf")
-            .toExternalForm(),
+        Application.class.getClassLoader().getResource("fonts/retrogaming.ttf").toExternalForm(),
         30);
     Font.loadFont(
-        Application.class
-            .getClassLoader()
-            .getResource("fonts/PixelOperator8.ttf")
-            .toExternalForm(),
+        Application.class.getClassLoader().getResource("fonts/PixelOperator8.ttf").toExternalForm(),
         40);
     Font.loadFont(
         Application.class
@@ -55,10 +48,7 @@ public class Application extends javafx.application.Application {
       scene
           .getStylesheets()
           .add(
-              Application.class
-                  .getClassLoader()
-                  .getResource("css/Main" + ".css")
-                  .toExternalForm());
+              Application.class.getClassLoader().getResource("css/Main" + ".css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate - Settings");
       primaryStage.show();
@@ -74,11 +64,7 @@ public class Application extends javafx.application.Application {
       Scene scene = new Scene(root, 1060, 600);
       scene
           .getStylesheets()
-          .add(
-              Application.class
-                  .getClassLoader()
-                  .getResource("css/Main.css")
-                  .toExternalForm());
+          .add(Application.class.getClassLoader().getResource("css/Main.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate");
       primaryStage.show();
@@ -95,11 +81,7 @@ public class Application extends javafx.application.Application {
       Scene scene = new Scene(loader.load(), 1060, 600);
       scene
           .getStylesheets()
-          .add(
-              Application.class
-                  .getClassLoader()
-                  .getResource("css/Main.css")
-                  .toExternalForm());
+          .add(Application.class.getClassLoader().getResource("css/Main.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate - Loading");
       primaryStage.show();
@@ -128,16 +110,13 @@ public class Application extends javafx.application.Application {
     try {
       FXMLLoader loader =
           new FXMLLoader(
-              Application.class.getClassLoader().getResource("fxml" + "/ServerConnectionLost" +
-                      ".fxml"));
+              Application.class
+                  .getClassLoader()
+                  .getResource("fxml" + "/ServerConnectionLost" + ".fxml"));
       Scene scene = new Scene(loader.load(), 1060, 600);
       scene
           .getStylesheets()
-          .add(
-              Application.class
-                  .getClassLoader()
-                  .getResource("css/Main.css")
-                  .toExternalForm());
+          .add(Application.class.getClassLoader().getResource("css/Main.css").toExternalForm());
       primaryStage.setScene(scene);
       primaryStage.setTitle("Saint Mary's Gate - Connection closed");
       primaryStage.show();
@@ -154,9 +133,7 @@ public class Application extends javafx.application.Application {
     primaryStage.setResizable(false);
     primaryStage
         .getIcons()
-        .add(
-            new Image(
-                Application.class.getClassLoader().getResource("img/icon.png").toString()));
+        .add(new Image(Application.class.getClassLoader().getResource("img/icon.png").toString()));
 
     loadFonts();
     showMainPage();
@@ -171,17 +148,18 @@ public class Application extends javafx.application.Application {
       }
     }
 
-    primaryStage.setOnCloseRequest(event -> {
-      DatabaseManager.close();
-      if (Cassandra.isConnected()) {
-        try {
-          Cassandra.close();
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
-        }
-      }
-      System.exit(0);
-    });
+    primaryStage.setOnCloseRequest(
+        event -> {
+          DatabaseManager.close();
+          if (Cassandra.isConnected()) {
+            try {
+              Cassandra.close();
+            } catch (InterruptedException e) {
+              throw new RuntimeException(e);
+            }
+          }
+          System.exit(0);
+        });
 
     primaryStage.show();
   }

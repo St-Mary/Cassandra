@@ -1,11 +1,11 @@
 package com.stmarygate.cassandra.application.controllers;
 
-import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.cassandra.Constants;
 import com.stmarygate.cassandra.Utils;
 import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
 import com.stmarygate.cassandra.cache.PlayerCache;
+import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.cassandra.client.handlers.CassandraGamePacketHandler;
 import com.stmarygate.coral.network.packets.client.PacketGetPlayerInformations;
 import com.stmarygate.coral.network.packets.client.PacketLoginUsingCredentials;
