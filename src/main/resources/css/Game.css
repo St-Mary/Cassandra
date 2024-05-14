@@ -17,6 +17,14 @@
 
 }
 
+.playerLabelUUID, .playerLabelUUID:focused {
+    -fx-font-family: "Pixel Operator 8";
+    -fx-font-size: 8px;
+    -fx-text-fill: #f8f1e7;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0px;
+}
+
 .playerLabelValue {
     -fx-font-family: "Pixel Operator 8";
     -fx-font-size: 12px;

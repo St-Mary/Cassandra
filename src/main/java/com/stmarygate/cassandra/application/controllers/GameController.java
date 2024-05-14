@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -24,6 +25,7 @@ public class GameController implements Initializable {
   public ImageView levelImage;
   public Label level;
   public ImageView levelImageTwo;
+  public TextField playerUUID;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -59,6 +61,9 @@ public class GameController implements Initializable {
     level.setText(LanguageManager.getString("GameMenu.level") + player.getLevel());
     levelImage.setImage(new Image(GameController.class.getResourceAsStream("/img/level.png")));
     levelImageTwo.setImage(new Image(GameController.class.getResourceAsStream("/img/level.png")));
+
+    playerUUID.setText("UUID: " + player.getId().toString());
+    playerUUID.setFocusTraversable(false);
   }
 
   private void initializeExp(Player player) {

@@ -44,5 +44,8 @@
                 </HBox>
             </HBox>
         </VBox>
+
+        <TextField fx:id="playerUUID" styleClass="playerLabelUUID" layoutY="435" layoutX="35"
+               prefWidth="437"/>
     </Pane>
 </AnchorPane>
