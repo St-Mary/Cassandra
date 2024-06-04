@@ -167,7 +167,8 @@ public class GameController implements Initializable {
     auraImage.setImage(new Image(GameController.class.getResourceAsStream("/img/aura.png")));
 
     playerStrength.setText(player.getStrength() + "");
-    strengthImage.setImage(new Image(GameController.class.getResourceAsStream("/img/strength.png")));
+    strengthImage.setImage(
+        new Image(GameController.class.getResourceAsStream("/img/strength.png")));
 
     playerDefense.setText(player.getDefense() + "");
     defenseImage.setImage(new Image(GameController.class.getResourceAsStream("/img/defense.png")));
