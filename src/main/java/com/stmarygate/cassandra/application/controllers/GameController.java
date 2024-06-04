@@ -53,19 +53,21 @@ public class GameController implements Initializable {
   }
 
   private void startServerConnectionMonitor() {
-    Thread th = new Thread(() -> {
-      while (true) {
-        try {
-          Thread.sleep(1000);
-          if (!Cassandra.isConnected()) {
-            Platform.runLater(Application::showServerConnectionLostPage);
-            break;
-          }
-        } catch (InterruptedException e) {
-          System.out.println("Error while updating player informations : " + e);
-        }
-      }
-    });
+    Thread th =
+        new Thread(
+            () -> {
+              while (true) {
+                try {
+                  Thread.sleep(1000);
+                  if (!Cassandra.isConnected()) {
+                    Platform.runLater(Application::showServerConnectionLostPage);
+                    break;
+                  }
+                } catch (InterruptedException e) {
+                  System.out.println("Error while updating player informations : " + e);
+                }
+              }
+            });
     th.setDaemon(true);
     th.start();
   }
@@ -83,14 +85,24 @@ public class GameController implements Initializable {
     if (player == null) return;
     playerExps.setText(player.getExp() + "/" + player.getExpToNextLevel());
     initializeImage(starImage, "/img/star.png");
-    updateImageViewBasedOnPercentage(starBar, player.getExp(), player.getExpToNextLevel(), "/img/exp_bar/exp_", "/img/empty_bar.png");
+    updateImageViewBasedOnPercentage(
+        starBar,
+        player.getExp(),
+        player.getExpToNextLevel(),
+        "/img/exp_bar/exp_",
+        "/img/empty_bar.png");
   }
 
   private void initializeHealth(Player player) {
     if (player == null) return;
     playerLives.setText(player.getHealth() + "/" + player.getMaxHealth());
     initializeImage(heartImage, "/img/heart.png");
-    updateImageViewBasedOnPercentage(healthBar, player.getHealth(), player.getMaxHealth(), "/img/health_bar/health_bar", "/img/empty_bar.png");
+    updateImageViewBasedOnPercentage(
+        healthBar,
+        player.getHealth(),
+        player.getMaxHealth(),
+        "/img/health_bar/health_bar",
+        "/img/empty_bar.png");
   }
 
   private void initializeAdditionalInfo(Player player) {
@@ -103,11 +115,13 @@ public class GameController implements Initializable {
     initializeStat(player.getStamina(), playerStamina, staminaImage, "/img/stamina.png");
   }
 
-  private void initializeStat(int statValue, Label statLabel, ImageView statImage, String imagePath) {
+  private void initializeStat(
+      int statValue, Label statLabel, ImageView statImage, String imagePath) {
     initializeStat((long) statValue, statLabel, statImage, imagePath);
   }
 
-  private void initializeStat(Long statValue, Label statLabel, ImageView statImage, String imagePath) {
+  private void initializeStat(
+      Long statValue, Label statLabel, ImageView statImage, String imagePath) {
     statLabel.setText(String.valueOf(statValue));
     initializeImage(statImage, imagePath);
   }
@@ -116,11 +130,18 @@ public class GameController implements Initializable {
     imageView.setImage(new Image(GameController.class.getResourceAsStream(path)));
   }
 
-  private void updateImageViewBasedOnPercentage(ImageView imageView, int currentValue, int maxValue, String basePath, String emptyImagePath) {
-    updateImageViewBasedOnPercentage(imageView, (long) currentValue, (long) maxValue, basePath, emptyImagePath);
+  private void updateImageViewBasedOnPercentage(
+      ImageView imageView, int currentValue, int maxValue, String basePath, String emptyImagePath) {
+    updateImageViewBasedOnPercentage(
+        imageView, (long) currentValue, (long) maxValue, basePath, emptyImagePath);
   }
 
-  private void updateImageViewBasedOnPercentage(ImageView imageView, Long currentValue, Long maxValue, String basePath, String emptyImagePath) {
+  private void updateImageViewBasedOnPercentage(
+      ImageView imageView,
+      Long currentValue,
+      Long maxValue,
+      String basePath,
+      String emptyImagePath) {
     double percentage = (double) currentValue / maxValue;
     String imagePath;
     if (percentage == 1) {
