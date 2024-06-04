@@ -4,7 +4,7 @@ import com.stmarygate.cassandra.Constants;
 import com.stmarygate.cassandra.Utils;
 import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.application.database.DatabaseManager;
-import com.stmarygate.cassandra.cache.PlayerCache;
+import com.stmarygate.cassandra.cache.Cache;
 import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.cassandra.client.handlers.CassandraGamePacketHandler;
 import com.stmarygate.coral.network.packets.client.PacketGetPlayerInformations;
@@ -128,7 +128,7 @@ public class LoadingGameController {
 
       try {
         Cassandra.getBaseChannel()
-            .sendPacket(new PacketGetPlayerInformations(PlayerCache.getAccount().getId()));
+            .sendPacket(new PacketGetPlayerInformations(Cache.getAccount().getId()));
         LOGGER.info("Sent packet to get player informations");
       } catch (Exception e) {
         e.printStackTrace();
@@ -147,7 +147,7 @@ public class LoadingGameController {
       }
 
       if (Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult() != null) {
-        PlayerCache.setPlayer(
+        Cache.setPlayer(
             Cassandra.getBaseChannel().getPacketGetPlayerInformationsResult().getPlayer());
         updateMessage("Done!");
         updateProgress(1, 1);
@@ -158,7 +158,7 @@ public class LoadingGameController {
           return;
         }
 
-        if (Cassandra.isConnected() && PlayerCache.getPlayer() != null) {
+        if (Cassandra.isConnected() && Cache.getPlayer() != null) {
           Platform.runLater(Application::showGamePage);
         }
       }

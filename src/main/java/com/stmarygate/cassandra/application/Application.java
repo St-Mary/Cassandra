@@ -134,7 +134,6 @@ public class Application extends javafx.application.Application {
     primaryStage
         .getIcons()
         .add(new Image(Application.class.getClassLoader().getResource("img/icon.png").toString()));
-
     loadFonts();
     showMainPage();
 

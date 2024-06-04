@@ -1,7 +1,7 @@
 package com.stmarygate.cassandra.client.handlers;
 
 import com.stmarygate.cassandra.client.Cassandra;
-import com.stmarygate.cassandra.cache.PlayerCache;
+import com.stmarygate.cassandra.cache.Cache;
 import com.stmarygate.coral.entities.Account;
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.packets.PacketHandler;
@@ -51,7 +51,7 @@ public class CassandraLoginPacketHandler extends PacketHandler {
     }
 
     Account account = packet.getAccount();
-    PlayerCache.setAccount(account);
+    Cache.setAccount(account);
     LOGGER.info("Login successful!");
   }
 }

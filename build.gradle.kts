@@ -34,6 +34,10 @@ repositories {
             password = System.getProperty("GITHUB_TOKEN").toString()
         }
     }
+
+    maven {
+        url = uri("https://oss.sonatype.org/content/repositories/snapshots/")
+    }
 }
 
 // Required by the 'shadowJar' task
@@ -55,6 +59,7 @@ dependencies {
     implementation("org.bouncycastle:bcprov-jdk18on:1.77")
     implementation("org.jline:jline-reader:3.25.0")
     implementation("org.jline:jline-terminal:3.25.0")
+    implementation("com.onexip:FlexBoxFX:0.1.5.3-SNAPSHOT")
 
     implementation("org.openjfx:javafx-fxml:23-ea+3")
     implementation("org.openjfx:javafx-controls:23-ea+3")

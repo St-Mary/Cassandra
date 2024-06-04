@@ -4,12 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Refactoring.">
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Add UUID to player window">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/aura.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/defense.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mana.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/speed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/stamina.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/img/strength.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/LoadingGameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/application/controllers/LoadingGameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/cache/PlayerCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/cache/Cache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/handlers/CassandraGamePacketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/handlers/CassandraGamePacketHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/handlers/CassandraLoginPacketHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/stmarygate/cassandra/client/handlers/CassandraLoginPacketHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Game.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/level.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/level.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/GameMenu.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/GameMenu.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,19 +49,7 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="cassandra" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="cassandra" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="cassandra" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="shadow" type="c8890929:TasksNode$1" />
+                <item name="Run Configurations" type="7b0102dc:RunConfigurationsNode" />
               </path>
             </expand>
             <select />
@@ -69,6 +69,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -267,7 +268,10 @@
       <workItem from="1715116484469" duration="4277000" />
       <workItem from="1715156546065" duration="9850000" />
       <workItem from="1715367714496" duration="594000" />
-      <workItem from="1715700336466" duration="988000" />
+      <workItem from="1715700336466" duration="2292000" />
+      <workItem from="1716929191090" duration="781000" />
+      <workItem from="1717270452141" duration="732000" />
+      <workItem from="1717519604672" duration="4713000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -381,7 +385,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715286657238</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Add UUID to player window">
+      <option name="closed" value="true" />
+      <created>1715701598610</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1715701598610</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +415,8 @@
     <MESSAGE value="Some refactoring" />
     <MESSAGE value="Adding level to game UI" />
     <MESSAGE value="Refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring." />
+    <MESSAGE value="Add UUID to player window" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UUID to player window" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cassandra$Cassandra.ic" NAME="Cassandra Coverage Results" MODIFIED="1714602875388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

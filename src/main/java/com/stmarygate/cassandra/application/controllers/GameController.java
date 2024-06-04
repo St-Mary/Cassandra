@@ -2,7 +2,7 @@ package com.stmarygate.cassandra.application.controllers;
 
 import com.stmarygate.cassandra.application.Application;
 import com.stmarygate.cassandra.application.LanguageManager;
-import com.stmarygate.cassandra.cache.PlayerCache;
+import com.stmarygate.cassandra.cache.Cache;
 import com.stmarygate.cassandra.client.Cassandra;
 import com.stmarygate.coral.entities.Player;
 import java.net.URL;
@@ -26,16 +26,29 @@ public class GameController implements Initializable {
   public Label level;
   public ImageView levelImageTwo;
   public TextField playerUUID;
+  public Label playerMana;
+  public Label playerAura;
+  public Label playerStrength;
+  public Label playerDefense;
+  public Label playerSpeed;
+  public Label playerStamina;
+  public ImageView manaImage;
+  public ImageView auraImage;
+  public ImageView strengthImage;
+  public ImageView defenseImage;
+  public ImageView speedImage;
+  public ImageView staminaImage;
 
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
-    Player player = PlayerCache.getPlayer();
+    Player player = Cache.getPlayer();
 
     playerName.setText(player != null ? player.getUsername() : "");
 
     initializeLevel(player);
     initializeHealth(player);
     initializeExp(player);
+    initializeAdditionalInfo(player);
 
     Thread th =
         new Thread(
@@ -142,5 +155,27 @@ public class GameController implements Initializable {
 
     healthBar.setFitHeight(20);
     healthBar.setPreserveRatio(true);
+  }
+
+  private void initializeAdditionalInfo(Player player) {
+    if (player == null) return;
+
+    playerMana.setText(player.getMana() + "");
+    manaImage.setImage(new Image(GameController.class.getResourceAsStream("/img/mana.png")));
+
+    playerAura.setText(player.getAura() + "");
+    auraImage.setImage(new Image(GameController.class.getResourceAsStream("/img/aura.png")));
+
+    playerStrength.setText(player.getStrength() + "");
+    strengthImage.setImage(new Image(GameController.class.getResourceAsStream("/img/strength.png")));
+
+    playerDefense.setText(player.getDefense() + "");
+    defenseImage.setImage(new Image(GameController.class.getResourceAsStream("/img/defense.png")));
+
+    playerSpeed.setText(player.getSpeed() + "");
+    speedImage.setImage(new Image(GameController.class.getResourceAsStream("/img/speed.png")));
+
+    playerStamina.setText(player.getStamina() + "");
+    staminaImage.setImage(new Image(GameController.class.getResourceAsStream("/img/stamina.png")));
   }
 }

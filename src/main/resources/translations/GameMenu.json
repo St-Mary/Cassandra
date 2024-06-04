@@ -2,5 +2,29 @@
   "GameMenu.level": {
     "fr": "Niveau ",
     "en": "Level "
+  },
+  "GameMenu.mana": {
+    "fr": "Mana",
+    "en": "Mana"
+  },
+  "GameMenu.aura": {
+    "fr": "Aura",
+    "en": "Aura"
+  },
+  "GameMenu.strength": {
+    "fr": "Force",
+    "en": "Strength"
+  },
+  "GameMenu.defense": {
+    "fr": "Défense",
+    "en": "Defense"
+  },
+  "GameMenu.speed": {
+    "fr": "Vitesse",
+    "en": "Speed"
+  },
+  "GameMenu.stamina": {
+    "fr": "Endurance",
+    "en": "Stamina"
   }
 }

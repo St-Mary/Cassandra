@@ -1,7 +1,7 @@
 package com.stmarygate.cassandra.client.handlers;
 
 import com.stmarygate.cassandra.client.Cassandra;
-import com.stmarygate.cassandra.cache.PlayerCache;
+import com.stmarygate.cassandra.cache.Cache;
 import com.stmarygate.coral.network.BaseChannel;
 import com.stmarygate.coral.network.packets.PacketHandler;
 import com.stmarygate.coral.network.packets.server.PacketGetPlayerInformationsResult;
@@ -20,6 +20,6 @@ public class CassandraGamePacketHandler extends PacketHandler {
 
   public void handlePacketGetPlayerInformationsResult(PacketGetPlayerInformationsResult packet) {
     Cassandra.getBaseChannel().setPacketGetPlayerInformationsResult(packet);
-    PlayerCache.setPlayer(packet.getPlayer());
+    Cache.setPlayer(packet.getPlayer());
   }
 }

@@ -5,6 +5,7 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.image.ImageView?>
+<?import com.onexip.flexboxfx.FlexBox?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.stmarygate.cassandra.application.controllers.GameController"
@@ -27,7 +28,7 @@
             <ImageView fx:id="levelImageTwo" fitHeight="30" fitWidth="30"/>
         </HBox>
 
-        <VBox prefWidth="417" layoutY="160" layoutX="40" spacing="5">
+        <VBox prefWidth="357" layoutY="160" layoutX="40" spacing="5">
 
             <HBox alignment="BASELINE_LEFT" spacing="5">
                 <HBox alignment="CENTER" spacing="5">
@@ -43,6 +44,48 @@
                     <Label fx:id="playerLives" alignment="BASELINE_LEFT" styleClass="playerLabelValue"/>
                 </HBox>
             </HBox>
+
+            <FlexBox direction="ROW">
+                <HBox spacing="5">
+                    <HBox alignment="CENTER" spacing="5">
+                        <ImageView fx:id="manaImage" fitHeight="40" fitWidth="40"/>
+                        <Label fx:id="playerMana" styleClass="playerLabelValue"/>
+                    </HBox>
+                </HBox>
+                <HBox spacing="5">
+                    <HBox alignment="CENTER" spacing="5">
+                        <ImageView fx:id="auraImage" fitHeight="40" fitWidth="40"/>
+                        <Label fx:id="playerAura" styleClass="playerLabelValue"/>
+                    </HBox>
+                </HBox>
+                <HBox spacing="5">
+                    <HBox alignment="CENTER" spacing="5">
+                        <ImageView fx:id="strengthImage" fitHeight="40" fitWidth="40"/>
+                        <Label fx:id="playerStrength" styleClass="playerLabelValue"/>
+                    </HBox>
+                </HBox>
+            </FlexBox>
+
+            <FlexBox direction="ROW">
+                <HBox alignment="BASELINE_LEFT" spacing="5">
+                    <HBox alignment="CENTER" spacing="5">
+                        <ImageView fx:id="defenseImage" fitHeight="40" fitWidth="40"/>
+                        <Label fx:id="playerDefense" styleClass="playerLabelValue"/>
+                    </HBox>
+                </HBox>
+                <HBox alignment="BASELINE_LEFT" spacing="5">
+                    <HBox alignment="CENTER" spacing="5">
+                        <ImageView fx:id="speedImage" fitHeight="40" fitWidth="40"/>
+                        <Label fx:id="playerSpeed" styleClass="playerLabelValue"/>
+                    </HBox>
+                </HBox>
+                <HBox alignment="BASELINE_LEFT" spacing="5">
+                    <HBox alignment="CENTER" spacing="5">
+                        <ImageView fx:id="staminaImage" fitHeight="40" fitWidth="40"/>
+                        <Label fx:id="playerStamina" styleClass="playerLabelValue"/>
+                    </HBox>
+                </HBox>
+            </FlexBox>
         </VBox>
 
         <TextField fx:id="playerUUID" styleClass="playerLabelUUID" layoutY="435" layoutX="35"
