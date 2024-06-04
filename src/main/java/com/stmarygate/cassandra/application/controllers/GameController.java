@@ -42,7 +42,6 @@ public class GameController implements Initializable {
   @Override
   public void initialize(URL url, ResourceBundle resourceBundle) {
     Player player = Cache.getPlayer();
-
     playerName.setText(player != null ? player.getUsername() : "");
 
     initializeLevel(player);
@@ -50,21 +49,23 @@ public class GameController implements Initializable {
     initializeExp(player);
     initializeAdditionalInfo(player);
 
-    Thread th =
-        new Thread(
-            () -> {
-              while (true) {
-                try {
-                  Thread.sleep(1000);
-                  if (!Cassandra.isConnected()) {
-                    Platform.runLater(Application::showServerConnectionLostPage);
-                    break;
-                  }
-                } catch (InterruptedException e) {
-                  System.out.println("Error while updating player informations : " + e);
-                }
-              }
-            });
+    startServerConnectionMonitor();
+  }
+
+  private void startServerConnectionMonitor() {
+    Thread th = new Thread(() -> {
+      while (true) {
+        try {
+          Thread.sleep(1000);
+          if (!Cassandra.isConnected()) {
+            Platform.runLater(Application::showServerConnectionLostPage);
+            break;
+          }
+        } catch (InterruptedException e) {
+          System.out.println("Error while updating player informations : " + e);
+        }
+      }
+    });
     th.setDaemon(true);
     th.start();
   }
@@ -72,9 +73,8 @@ public class GameController implements Initializable {
   private void initializeLevel(Player player) {
     if (player == null) return;
     level.setText(LanguageManager.getString("GameMenu.level") + player.getLevel());
-    levelImage.setImage(new Image(GameController.class.getResourceAsStream("/img/level.png")));
-    levelImageTwo.setImage(new Image(GameController.class.getResourceAsStream("/img/level.png")));
-
+    initializeImage(levelImage, "/img/level.png");
+    initializeImage(levelImageTwo, "/img/level.png");
     playerUUID.setText("UUID: " + player.getId().toString());
     playerUUID.setFocusTraversable(false);
   }
@@ -82,100 +82,67 @@ public class GameController implements Initializable {
   private void initializeExp(Player player) {
     if (player == null) return;
     playerExps.setText(player.getExp() + "/" + player.getExpToNextLevel());
-    starImage.setImage(new Image(GameController.class.getResourceAsStream("/img/star.png")));
-    // Set the player's image based on the player's level
-    double expPercentage = (double) player.getExp() / player.getExpToNextLevel();
-    if (expPercentage == 1) {
-      starBar.setImage(
-          new Image(
-              GameController.class.getResourceAsStream("/img" + "/star_bar/star_bar0" + ".png")));
-    } else if (expPercentage >= 0.75) {
-      starBar.setImage(
-          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_1" + ".png")));
-    } else if (expPercentage >= 0.5) {
-      starBar.setImage(
-          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_2" + ".png")));
-    } else if (expPercentage >= 0.25) {
-      starBar.setImage(
-          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_3" + ".png")));
-    } else if (expPercentage >= 0.15) {
-      starBar.setImage(
-          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_4" + ".png")));
-    } else {
-      starBar.setImage(
-          new Image(GameController.class.getResourceAsStream("/img/exp_bar/exp_5" + ".png")));
-    }
-
-    if (player.getExp() == 0) {
-      starBar.setImage(
-          new Image(GameController.class.getResourceAsStream("/img/empty_bar" + ".png")));
-    }
-
-    starBar.setFitHeight(20);
-    starBar.setPreserveRatio(true);
+    initializeImage(starImage, "/img/star.png");
+    updateImageViewBasedOnPercentage(starBar, player.getExp(), player.getExpToNextLevel(), "/img/exp_bar/exp_", "/img/empty_bar.png");
   }
 
   private void initializeHealth(Player player) {
     if (player == null) return;
     playerLives.setText(player.getHealth() + "/" + player.getMaxHealth());
-    heartImage.setImage(new Image(GameController.class.getResourceAsStream("/img/heart.png")));
-    // Set the player's image based on the player's level
-    double healthPercentage = (double) player.getHealth() / player.getMaxHealth();
-    if (healthPercentage == 1) {
-      healthBar.setImage(
-          new Image(
-              GameController.class.getResourceAsStream(
-                  "/img" + "/health_bar/health_bar0" + ".png")));
-    } else if (healthPercentage >= 0.75) {
-      healthBar.setImage(
-          new Image(
-              GameController.class.getResourceAsStream("/img/health_bar/health_bar1" + ".png")));
-    } else if (healthPercentage >= 0.5) {
-      healthBar.setImage(
-          new Image(
-              GameController.class.getResourceAsStream("/img/health_bar/health_bar2" + ".png")));
-    } else if (healthPercentage >= 0.25) {
-      healthBar.setImage(
-          new Image(
-              GameController.class.getResourceAsStream("/img/health_bar/health_bar3" + ".png")));
-    } else if (healthPercentage >= 0.15) {
-      healthBar.setImage(
-          new Image(
-              GameController.class.getResourceAsStream("/img/health_bar/health_bar4" + ".png")));
-    } else {
-      healthBar.setImage(
-          new Image(
-              GameController.class.getResourceAsStream("/img/health_bar/health_bar5" + ".png")));
-    }
-
-    if (player.getHealth() == 0) {
-      healthBar.setImage(
-          new Image(GameController.class.getResourceAsStream("/img/empty_bar" + ".png")));
-    }
-
-    healthBar.setFitHeight(20);
-    healthBar.setPreserveRatio(true);
+    initializeImage(heartImage, "/img/heart.png");
+    updateImageViewBasedOnPercentage(healthBar, player.getHealth(), player.getMaxHealth(), "/img/health_bar/health_bar", "/img/empty_bar.png");
   }
 
   private void initializeAdditionalInfo(Player player) {
     if (player == null) return;
+    initializeStat(player.getMana(), playerMana, manaImage, "/img/mana.png");
+    initializeStat(player.getAura(), playerAura, auraImage, "/img/aura.png");
+    initializeStat(player.getStrength(), playerStrength, strengthImage, "/img/strength.png");
+    initializeStat(player.getDefense(), playerDefense, defenseImage, "/img/defense.png");
+    initializeStat(player.getSpeed(), playerSpeed, speedImage, "/img/speed.png");
+    initializeStat(player.getStamina(), playerStamina, staminaImage, "/img/stamina.png");
+  }
 
-    playerMana.setText(player.getMana() + "");
-    manaImage.setImage(new Image(GameController.class.getResourceAsStream("/img/mana.png")));
+  private void initializeStat(int statValue, Label statLabel, ImageView statImage, String imagePath) {
+    initializeStat((long) statValue, statLabel, statImage, imagePath);
+  }
 
-    playerAura.setText(player.getAura() + "");
-    auraImage.setImage(new Image(GameController.class.getResourceAsStream("/img/aura.png")));
+  private void initializeStat(Long statValue, Label statLabel, ImageView statImage, String imagePath) {
+    statLabel.setText(String.valueOf(statValue));
+    initializeImage(statImage, imagePath);
+  }
 
-    playerStrength.setText(player.getStrength() + "");
-    strengthImage.setImage(new Image(GameController.class.getResourceAsStream("/img/strength.png")));
+  private void initializeImage(ImageView imageView, String path) {
+    imageView.setImage(new Image(GameController.class.getResourceAsStream(path)));
+  }
 
-    playerDefense.setText(player.getDefense() + "");
-    defenseImage.setImage(new Image(GameController.class.getResourceAsStream("/img/defense.png")));
+  private void updateImageViewBasedOnPercentage(ImageView imageView, int currentValue, int maxValue, String basePath, String emptyImagePath) {
+    updateImageViewBasedOnPercentage(imageView, (long) currentValue, (long) maxValue, basePath, emptyImagePath);
+  }
 
-    playerSpeed.setText(player.getSpeed() + "");
-    speedImage.setImage(new Image(GameController.class.getResourceAsStream("/img/speed.png")));
+  private void updateImageViewBasedOnPercentage(ImageView imageView, Long currentValue, Long maxValue, String basePath, String emptyImagePath) {
+    double percentage = (double) currentValue / maxValue;
+    String imagePath;
+    if (percentage == 1) {
+      imagePath = basePath + "0.png";
+    } else if (percentage >= 0.75) {
+      imagePath = basePath + "1.png";
+    } else if (percentage >= 0.5) {
+      imagePath = basePath + "2.png";
+    } else if (percentage >= 0.25) {
+      imagePath = basePath + "3.png";
+    } else if (percentage >= 0.15) {
+      imagePath = basePath + "4.png";
+    } else {
+      imagePath = basePath + "5.png";
+    }
 
-    playerStamina.setText(player.getStamina() + "");
-    staminaImage.setImage(new Image(GameController.class.getResourceAsStream("/img/stamina.png")));
+    if (currentValue == 0) {
+      imagePath = emptyImagePath;
+    }
+
+    initializeImage(imageView, imagePath);
+    imageView.setFitHeight(20);
+    imageView.setPreserveRatio(true);
   }
 }
