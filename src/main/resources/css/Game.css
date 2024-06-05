@@ -1,6 +1,7 @@
 .vboxPlayer {
     -fx-background-image: url("../img/profile_board.png");
-    -fx-background-size: cover;
+    -fx-background-size: contain;
+    -fx-background-repeat: no-repeat;
 }
 
 .window {
@@ -19,7 +20,7 @@
 
 .playerLabelUUID, .playerLabelUUID:focused {
     -fx-font-family: "Pixel Operator 8";
-    -fx-font-size: 8px;
+    -fx-font-size: 7px;
     -fx-text-fill: #f8f1e7;
     -fx-background-color: transparent;
     -fx-background-insets: 0px;

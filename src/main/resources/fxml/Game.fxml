@@ -17,18 +17,18 @@
 
 
 
-    <Pane layoutY="20" layoutX="20" prefWidth="450" prefHeight="450"
+    <Pane layoutY="10" layoutX="20" prefWidth="425" prefHeight="600"
           styleClass="vboxPlayer">
-        <Label fx:id="playerName" styleClass="playerLabelTitle" alignment="CENTER" textAlignment="CENTER"
-               layoutY="35" prefWidth="437"/>
+        <Label fx:id="playerName" styleClass="playerLabelTitle" alignment="CENTER"
+               textAlignment="CENTER" prefWidth="425" layoutY="110"/>
 
-        <HBox alignment="CENTER" layoutX="20" layoutY="120" spacing="5" prefWidth="417" >
+        <HBox alignment="CENTER" layoutY="150" spacing="5" prefWidth="425" >
             <ImageView fx:id="levelImage" fitHeight="30" fitWidth="30"/>
             <Label fx:id="level" styleClass="playerLevel"/>
             <ImageView fx:id="levelImageTwo" fitHeight="30" fitWidth="30"/>
         </HBox>
 
-        <VBox prefWidth="357" layoutY="160" layoutX="40" spacing="5">
+        <VBox prefWidth="250" layoutY="210" layoutX="90" spacing="5">
 
             <HBox alignment="BASELINE_LEFT" spacing="5">
                 <HBox alignment="CENTER" spacing="5">
@@ -45,7 +45,7 @@
                 </HBox>
             </HBox>
 
-            <FlexBox direction="ROW">
+            <FlexBox direction="ROW" layoutY="270">
                 <HBox spacing="5">
                     <HBox alignment="CENTER" spacing="5">
                         <ImageView fx:id="manaImage" fitHeight="40" fitWidth="40"/>
@@ -88,7 +88,7 @@
             </FlexBox>
         </VBox>
 
-        <TextField fx:id="playerUUID" styleClass="playerLabelUUID" layoutY="435" layoutX="35"
-               prefWidth="437"/>
+        <TextField fx:id="playerUUID" styleClass="playerLabelUUID" layoutY="480" layoutX="80"
+                   prefWidth="300"/>
     </Pane>
 </AnchorPane>
