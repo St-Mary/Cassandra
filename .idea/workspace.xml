@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/mission_board.png" afterDir="false" />
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="New profile board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/Game.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/Game.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/Game.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/img/profile_board.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/img/profile_board.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/translations/GameMenu.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/translations/GameMenu.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,9 +214,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.cassandra [shadowJar]" />
-        <item itemvalue="Gradle.cassandra [build]" />
-        <item itemvalue="Gradle.cassandra [jar]" />
         <item itemvalue="Gradle.cassandra [manifest]" />
+        <item itemvalue="Gradle.cassandra [jar]" />
+        <item itemvalue="Gradle.cassandra [build]" />
         <item itemvalue="Application.Cassandra" />
       </list>
     </recent_temporary>
@@ -260,7 +255,8 @@
       <workItem from="1715700336466" duration="2292000" />
       <workItem from="1716929191090" duration="781000" />
       <workItem from="1717270452141" duration="732000" />
-      <workItem from="1717519604672" duration="7509000" />
+      <workItem from="1717519604672" duration="7847000" />
+      <workItem from="1717961751205" duration="391000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -398,7 +394,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717533464047</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="New profile board">
+      <option name="closed" value="true" />
+      <created>1717619371740</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717619371741</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -423,7 +427,8 @@
     <MESSAGE value="Add UUID to player window" />
     <MESSAGE value="Add other stats to Game window" />
     <MESSAGE value="Refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring" />
+    <MESSAGE value="New profile board" />
+    <option name="LAST_COMMIT_MESSAGE" value="New profile board" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cassandra$Cassandra.ic" NAME="Cassandra Coverage Results" MODIFIED="1714602875388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
