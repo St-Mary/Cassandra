@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="New profile board">
+    <list default="true" id="7ba7467b-b7f8-412e-a30b-3e7f1a0a6f84" name="Changes" comment="Bump to Coral v1.0.19">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,6 +258,8 @@
       <workItem from="1717270452141" duration="732000" />
       <workItem from="1717519604672" duration="7847000" />
       <workItem from="1717961751205" duration="391000" />
+      <workItem from="1717962190972" duration="2298000" />
+      <workItem from="1718209524072" duration="424000" />
     </task>
     <task id="LOCAL-00001" summary="Edit settings page to load data from database at page loading">
       <option name="closed" value="true" />
@@ -402,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717619371741</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Bump to Coral v1.0.19">
+      <option name="closed" value="true" />
+      <created>1717963687469</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1717963687469</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -428,7 +439,8 @@
     <MESSAGE value="Add other stats to Game window" />
     <MESSAGE value="Refactoring" />
     <MESSAGE value="New profile board" />
-    <option name="LAST_COMMIT_MESSAGE" value="New profile board" />
+    <MESSAGE value="Bump to Coral v1.0.19" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bump to Coral v1.0.19" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/cassandra$Cassandra.ic" NAME="Cassandra Coverage Results" MODIFIED="1714602875388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

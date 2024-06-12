@@ -29,10 +29,6 @@ repositories {
     maven {
         name = "GitHubPackages"
         url = uri("https://maven.pkg.github.com/St-Mary/Coral")
-        credentials {
-            username = System.getProperty("GITHUB_ACTOR").toString()
-            password = System.getProperty("GITHUB_TOKEN").toString()
-        }
     }
 
     maven {
@@ -72,8 +68,8 @@ dependencies {
     implementation("org.hibernate.orm:hibernate-hikaricp:6.4.1.Final")
 
     implementation("com.stmarygate:coral:1.0.19")
-    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build"
-    // + "/libs/coral-1.0.20.jar"))
+    // implementation(files("/Users/noelle/Desktop/Developpement/Projets/StMary-Gate/coral/build" +
+        // "/libs/coral-1.0.20.jar"))
 }
 
 
